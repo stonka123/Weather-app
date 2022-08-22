@@ -1,0 +1,47 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-size: 62.5%;
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.app {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgb(255, 208, 122);
+	&__top {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		width: 100%;
+		padding: 1em 0.5em;
+		font-size: 1.2rem;
+		&-city {
+			font-weight: bold;
+		}
+	}
+
+	&__mid {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		margin: 1em;
+		&-value {
+			display: flex;
+			padding: 1em;
+			font-size: 1.8rem;
+			&-status {
+				margin-left: 1em;
+				font-size: 1rem;
+			}
+		}
+	}
+}

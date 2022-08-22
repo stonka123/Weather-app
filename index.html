@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/main.css">
+    <script src="https://kit.fontawesome.com/2c8b96ae6c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="app">
+        <div class="app__top">
+            <div class="app__top-location icons-ux"><i class="fas fa-map-marker-alt"></i></div>
+            <p class="app__top-city">Poznań</p>
+            <div class="app__top-settings icons-ux"><i class="fas fa-cog"></i></div>
+        </div>
+        <div class="app__mid">
+            <img src="img/weather-app.png" alt="" class="app__mid-img">
+            <div class="app__mid-value">25<span>&#8451;</span>
+            </div>
+
+        </div>
+        <div class="app__bottom">
+            <div class="app__bottom-info">
+                <div class="app__bottom-info-weather">weather: <span class="app__bottom-info-weather-value">rainy</span>
+                </div>
+                <div class="app__bottom-info-temperature">temperature: <span
+                        class="app__bottom-info-temperature-value">25<span>&#8451;</span></span></div>
+                <div class="app__bottom-info-humanidity">humanidity: <span
+                        class="app__bottom-info-humanidity-value">80%</span>
+                </div>
+            </div>
+            <div class="app__bottom-footer">
+                <button class="app__bottom-footer-back"><i class="fas fa-long-arrow-alt-left"></i> back</button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
