@@ -33,6 +33,15 @@ body {
   font-size: 1.2rem;
 }
 
+.app__top-icon {
+  color: #fff;
+  background: none;
+  border: none;
+  padding: 0.4em;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
 .app__top-city {
   font-weight: bold;
 }
@@ -54,6 +63,10 @@ body {
   margin: 1em;
 }
 
+.app__mid-img {
+  width: 50vw;
+}
+
 .app__mid-value {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -65,5 +78,45 @@ body {
 .app__mid-value-status {
   margin-left: 1em;
   font-size: 1rem;
+}
+
+.app__bottom {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.app__bottom-section {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.5em 1em;
+}
+
+.app__bottom-section-option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app__bottom-section-option-icon {
+  width: 28px;
 }
 /*# sourceMappingURL=main.css.map */

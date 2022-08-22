@@ -23,6 +23,14 @@ body {
 		width: 100%;
 		padding: 1em 0.5em;
 		font-size: 1.2rem;
+		&-icon {
+			color: #fff;
+			background: none;
+			border: none;
+			padding: 0.4em;
+			font-size: 1.2rem;
+			cursor: pointer;
+		}
 		&-city {
 			font-weight: bold;
 		}
@@ -34,6 +42,9 @@ body {
 		justify-content: center;
 		flex-direction: column;
 		margin: 1em;
+		&-img {
+			width: 50vw;
+		}
 		&-value {
 			display: flex;
 			padding: 1em;
@@ -41,6 +52,29 @@ body {
 			&-status {
 				margin-left: 1em;
 				font-size: 1rem;
+			}
+		}
+	}
+	&__bottom {
+		font-size: 1.2rem;
+		text-transform: uppercase;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		&-section {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0.5em 1em;
+
+			&-option {
+				display: flex;
+				align-items: center;
+
+				&-icon {
+					width: 28px;
+				}
 			}
 		}
 	}

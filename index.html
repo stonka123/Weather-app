@@ -14,37 +14,53 @@
 </head>
 
 <body>
+    <!-- ICON <a href="https://www.flaticon.com/free-icons/road-sign" title="road sign icons">Road sign icons created by bukeicon - Flaticon</a> -->
 
     <div class="app">
         <div class="app__top">
-            <div class="app__top-location icons-ux"><i class="fas fa-map-marker-alt"></i></div>
+            <button class="app__top-icon icons-ux"><i class="fas fa-map-marker-alt"></i></button>
             <p class="app__top-city">Poznań</p>
-            <div class="app__top-settings icons-ux"><i class="fas fa-cog"></i></div>
+            <button class="app__top-icon icons-ux"><i class="fas fa-cog"></i></button>
         </div>
         <div class="app__mid">
-            <img src="img/weather-app.png" alt="" class="app__mid-img">
+            <img src="img/rainy.png" alt="" class="app__mid-img">
             <div class="app__mid-value">25<span>&#8451;</span>
             </div>
 
         </div>
         <div class="app__bottom">
-            <div class="app__bottom-info">
-                <div class="app__bottom-info-weather">weather: <span class="app__bottom-info-weather-value">rainy</span>
+            <div class="app__bottom-section">
+                <div class="app__bottom-section-option">
+                    <img src="img/eclipse(1).png" alt="" srcset="" class="app__bottom-section-option-icon">
+                    <p class="app__bottom-info-option">weather: </p>
                 </div>
-                <div class="app__bottom-info-temperature">temperature: <span
-                        class="app__bottom-info-temperature-value">25<span>&#8451;</span></span></div>
-                <div class="app__bottom-info-humanidity">humanidity: <span
-                        class="app__bottom-info-humanidity-value">80%</span>
-                </div>
+                <p class="app__bottom-section-value">rainy</p>
             </div>
-            <div class="app__bottom-footer">
-                <button class="app__bottom-footer-back"><i class="fas fa-long-arrow-alt-left"></i> back</button>
+            <div class="app__bottom-section">
+                <div class="app__bottom-section-option">
+                    <img src="img/high-temperature.png" alt="" srcset="" class="app__bottom-section-option-icon">
+                    <p class="app__bottom-info-option">temperature: </p>
+                </div>
+                <p class="app__bottom-section-value">25<span>&#8451;</span></p>
             </div>
 
+            <div class="app__bottom-section">
+                <div class="app__bottom-section-option">
+                    <img src="img/eclipse(1).png" alt="" srcset="" class="app__bottom-section-option-icon">
+                    <p class="app__bottom-info-option">humidity: </p>
+                </div>
+                <p class="app__bottom-section-value">85%</p>
+            </div>
+
+        </div>
+        <div class="app__footer">
+            <button class="app__bottom-footer-back"><i class="fas fa-long-arrow-alt-left"></i> back</button>
         </div>
 
 
     </div>
+
+
 
     <script src="js/main.js"></script>
 
