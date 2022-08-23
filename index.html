@@ -15,51 +15,58 @@
 
 <body>
     <!-- ICON <a href="https://www.flaticon.com/free-icons/road-sign" title="road sign icons">Road sign icons created by bukeicon - Flaticon</a> -->
+    <div class="wrapper">
+        <div class="panel">
 
-    <div class="app">
-        <div class="app__top">
-            <button class="app__top-icon icons-ux"><i class="fas fa-map-marker-alt"></i></button>
-            <p class="app__top-city">Poznań</p>
-            <button class="app__top-icon icons-ux"><i class="fas fa-cog"></i></button>
-        </div>
-        <div class="app__mid">
-            <img src="img/rainy.png" alt="" class="app__mid-img">
-            <div class="app__mid-value">25<span>&#8451;</span>
+            <div class="panel__wrapper">
+                <img src="./img/mobile-phone.png" alt="" class="panel__img">
+                <h1 class="panel__wrapper-header">Weather App</h1>
+                <input type="text" class="panel__wrapper-input" placeholder="Szukaj miasto....">
+                <button class="panel__wrapper-btn">Szukaj</button>
             </div>
-
         </div>
-        <div class="app__bottom">
-            <div class="app__bottom-section">
-                <div class="app__bottom-section-option">
-                    <img src="img/eclipse(1).png" alt="" srcset="" class="app__bottom-section-option-icon">
-                    <p class="app__bottom-info-option">weather: </p>
+        <div class="app">
+            <div class="app__top">
+                <button class="app__top-icon icons-ux"><i class="fas fa-map-marker-alt"></i></button>
+                <p class="app__top-city">Poznań</p>
+                <button class="app__top-icon icons-ux"><i class="fas fa-cog"></i></button>
+            </div>
+            <div class="app__mid">
+                <img src="img/rainy.png" alt="" class="app__mid-img">
+                <div class="app__mid-value">25<span>&#8451;</span>
                 </div>
-                <p class="app__bottom-section-value">rainy</p>
+
             </div>
-            <div class="app__bottom-section">
-                <div class="app__bottom-section-option">
-                    <img src="img/high-temperature.png" alt="" srcset="" class="app__bottom-section-option-icon">
-                    <p class="app__bottom-info-option">temperature: </p>
+            <div class="app__bottom">
+                <div class="app__bottom-section">
+                    <div class="app__bottom-section-option">
+                        <img src="img/eclipse(1).png" alt="" srcset="" class="app__bottom-section-option-icon">
+                        <p class="app__bottom-info-option">weather: </p>
+                    </div>
+                    <p class="app__bottom-section-value">rainy</p>
                 </div>
-                <p class="app__bottom-section-value">25<span>&#8451;</span></p>
-            </div>
-
-            <div class="app__bottom-section">
-                <div class="app__bottom-section-option">
-                    <img src="img/eclipse(1).png" alt="" srcset="" class="app__bottom-section-option-icon">
-                    <p class="app__bottom-info-option">humidity: </p>
+                <div class="app__bottom-section">
+                    <div class="app__bottom-section-option">
+                        <img src="img/high-temperature.png" alt="" srcset="" class="app__bottom-section-option-icon">
+                        <p class="app__bottom-info-option">temperature: </p>
+                    </div>
+                    <p class="app__bottom-section-value">25<span>&#8451;</span></p>
                 </div>
-                <p class="app__bottom-section-value">85%</p>
+
+                <div class="app__bottom-section">
+                    <div class="app__bottom-section-option">
+                        <img src="img/eclipse(1).png" alt="" srcset="" class="app__bottom-section-option-icon">
+                        <p class="app__bottom-info-option">humidity: </p>
+                    </div>
+                    <p class="app__bottom-section-value">85%</p>
+                </div>
+
             </div>
-
+            <div class="app__footer">
+                <button class="app__footer-back"><i class="fas fa-long-arrow-alt-left"></i> back</button>
+            </div>
         </div>
-        <div class="app__footer">
-            <button class="app__bottom-footer-back"><i class="fas fa-long-arrow-alt-left"></i> back</button>
-        </div>
-
-
     </div>
-
 
 
     <script src="js/main.js"></script>
