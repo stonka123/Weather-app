@@ -17,24 +17,26 @@
     <!-- ICON <a href="https://www.flaticon.com/free-icons/road-sign" title="road sign icons">Road sign icons created by bukeicon - Flaticon</a> -->
     <div class="wrapper">
         <div class="panel">
-
             <div class="panel__wrapper">
                 <img src="./img/mobile-phone.png" alt="" class="panel__img">
                 <h1 class="panel__wrapper-header">Weather App</h1>
                 <input type="text" class="panel__wrapper-input" placeholder="Szukaj miasto....">
+                <p class="panel__wrapper-error"></p>
                 <button class="panel__wrapper-btn">Szukaj</button>
             </div>
         </div>
         <div class="app">
             <div class="app__top">
                 <button class="app__top-icon icons-ux"><i class="fas fa-map-marker-alt"></i></button>
-                <p class="app__top-city">Poznań</p>
+                <p class="app__top-city"></p>
                 <button class="app__top-icon icons-ux"><i class="fas fa-cog"></i></button>
             </div>
             <div class="app__mid">
                 <img src="img/rainy.png" alt="" class="app__mid-img">
-                <div class="app__mid-value">25<span>&#8451;</span>
+
+                <div class="app__mid-value temperature ">15
                 </div>
+
 
             </div>
             <div class="app__bottom">
@@ -43,14 +45,14 @@
                         <img src="img/eclipse(1).png" alt="" srcset="" class="app__bottom-section-option-icon">
                         <p class="app__bottom-info-option">weather: </p>
                     </div>
-                    <p class="app__bottom-section-value">rainy</p>
+                    <p class="app__bottom-section-value weather">rainy</p>
                 </div>
                 <div class="app__bottom-section">
                     <div class="app__bottom-section-option">
-                        <img src="img/high-temperature.png" alt="" srcset="" class="app__bottom-section-option-icon">
-                        <p class="app__bottom-info-option">temperature: </p>
+                        <img src="img/tornado.png" alt="" srcset="" class="app__bottom-section-option-icon">
+                        <p class="app__bottom-info-option">wind: </p>
                     </div>
-                    <p class="app__bottom-section-value">25<span>&#8451;</span></p>
+                    <p class="app__bottom-section-value wind">25</p>
                 </div>
 
                 <div class="app__bottom-section">
@@ -58,7 +60,7 @@
                         <img src="img/eclipse(1).png" alt="" srcset="" class="app__bottom-section-option-icon">
                         <p class="app__bottom-info-option">humidity: </p>
                     </div>
-                    <p class="app__bottom-section-value">85%</p>
+                    <p class="app__bottom-section-value humidity">85%</p>
                 </div>
 
             </div>
@@ -68,7 +70,7 @@
         </div>
     </div>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/main.js"></script>
 
 </body>

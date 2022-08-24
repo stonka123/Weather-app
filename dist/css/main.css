@@ -50,9 +50,9 @@ body {
 
 .panel__img {
   position: absolute;
-  top: 1em;
-  left: 1em;
-  width: 130px;
+  top: 1.5em;
+  left: 1.5em;
+  width: 20%;
 }
 
 .panel__wrapper {
@@ -62,8 +62,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -75,13 +76,23 @@ body {
 .panel__wrapper-header {
   text-align: center;
   padding: 1em;
+  font-size: 1.6rem;
 }
 
 .panel__wrapper-input {
   border: none;
-  padding: 0.5em 0.3em;
+  padding: 0.5em 1em;
+  width: 80%;
+  height: 50px;
   border-radius: 10px;
+  color: #04a4ff;
+  font-size: 1.5rem;
   outline: none;
+}
+
+.panel__wrapper-error {
+  color: #fd3737;
+  font-size: 1.3rem;
 }
 
 .panel__wrapper-btn {
