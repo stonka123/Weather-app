@@ -15,6 +15,19 @@ body {
   background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
 }
 
+.shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.6;
+  z-index: -100;
+}
+
 .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -92,7 +105,8 @@ body {
 
 .panel__wrapper-error {
   color: #fd3737;
-  font-size: 1.3rem;
+  font-size: 1rem;
+  visibility: hidden;
 }
 
 .panel__wrapper-btn {
@@ -238,6 +252,11 @@ body {
 }
 
 @media (min-width: 600px) {
+  body {
+    background-image: url("/img/body_bgc.jpg");
+    background-size: cover;
+    background-position: center;
+  }
   .panel {
     border-radius: 20px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;

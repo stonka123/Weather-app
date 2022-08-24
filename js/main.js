@@ -24,7 +24,7 @@ const getWeather = () => {
 		.get(URL)
 		.then(res => {
 			warning.textContent = ''
-			console.log(res)
+
 			const weath = res.data.weather[0].main
 			const wind = res.data.wind.speed
 
@@ -37,14 +37,17 @@ const getWeather = () => {
 			weather.textContent = weath
 			windValue.textContent = wind.toFixed(1) + ' ' + unicodeMetSec
 			humidityValue.textContent = hum + ' ' + '%'
+			showApp()
 		})
-		.catch(() => (warning.textContent = 'Wpisz nazwę miasta!'))
+		.catch(() => {
+			warning.textContent = 'Please enter a valid city name'
+			warning.classList.add('show')
+		})
 }
 
 const showApp = () => {
 	panel.classList.add('translate-right')
 	appMain.classList.add('show')
-	getWeather()
 }
 
 const showPanel = () => {
@@ -52,5 +55,7 @@ const showPanel = () => {
 	appMain.classList.remove('show')
 }
 
-searchBtn.addEventListener('click', showApp)
+searchBtn.addEventListener('click', () => {
+	setTimeout(getWeather, 10)
+})
 backBtn.addEventListener('click', showPanel)
