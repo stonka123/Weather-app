@@ -7,6 +7,10 @@ const inputCity = document.querySelector('.panel__wrapper-input')
 const temperature = document.querySelector('.temperature')
 const weather = document.querySelector('.weather')
 const windValue = document.querySelector('.wind')
+const pressureValue = document.querySelector('.pressure')
+const descriptionValue = document.querySelector('.app__mid-container-description')
+const feelValue = document.querySelector('.app__mid-container-text--feel')
+const maxTempValue = document.querySelector('.app__mid-container-text--max')
 
 const humidityValue = document.querySelector('.humidity')
 const warning = document.querySelector('.panel__wrapper-error')
@@ -23,20 +27,27 @@ const getWeather = () => {
 	axios
 		.get(URL)
 		.then(res => {
+			console.log(res)
 			warning.textContent = ''
-
 			const weath = res.data.weather[0].main
+			const desc = res.data.weather[0].description
+			const feel = res.data.main.feels_like
+			const maxTemp = res.data.main.temp_max
 			const wind = res.data.wind.speed
-
 			const temp = res.data.main.temp
 			const hum = res.data.main.humidity
+			const press = res.data.main.pressure
+
 			let unicodeDegCel = '℃'
 			let unicodeMetSec = '㎧'
 			cityName.textContent = res.data.name
 			temperature.textContent = Math.round(temp) + ' ' + unicodeDegCel
-			weather.textContent = weath
+			feelValue.textContent = feel.toFixed(0) + '' + unicodeDegCel
+			maxTempValue.textContent = maxTemp.toFixed(0) + '' + unicodeDegCel
+			descriptionValue.textContent = desc
 			windValue.textContent = wind.toFixed(1) + ' ' + unicodeMetSec
 			humidityValue.textContent = hum + ' ' + '%'
+			pressureValue.textContent = press + ' ' + '㍱'
 			showApp()
 		})
 		.catch(() => {
@@ -62,8 +73,10 @@ const enterCheck = e => {
 }
 
 searchBtn.addEventListener('click', () => {
-	setTimeout(getWeather, 10)
+	setTimeout(getWeather, 50)
+})
+backBtn.addEventListener('click', () => {
+	setTimeout(showPanel, 50)
 })
 
-backBtn.addEventListener('click', showPanel)
 inputCity.addEventListener('keyup', enterCheck)
