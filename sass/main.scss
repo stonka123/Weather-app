@@ -22,7 +22,7 @@ body {
 	background-color: black;
 	width: 100vw;
 	height: 100vh;
-	opacity: 0.6;
+	opacity: 0.3;
 	z-index: -100;
 }
 .wrapper {
@@ -42,15 +42,11 @@ body {
 	transform: translateX(0);
 	opacity: 1;
 	transition: transform 0.3s, opacity 0.3s;
-	background-color: #ff9a8b;
-	background-image: linear-gradient(90deg, #ff9a8b 0%, #ff6a88 55%, #ff99ac 100%);
+	background-image: url('/img/bgc_cloud.jpg');
+	background-position: center;
+	background-size: cover;
+	animation: backgroundMove 1s;
 
-	&__img {
-		position: absolute;
-		top: 1.5em;
-		left: 1.5em;
-		width: 20%;
-	}
 	&__wrapper {
 		display: flex;
 		align-items: center;
@@ -60,9 +56,22 @@ body {
 		height: 100%;
 
 		&-header {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
 			text-align: center;
 			padding: 1em;
-			font-size: 1.6rem;
+			font-size: 1rem;
+			&__img {
+				position: absolute;
+				top: 1.2em;
+				left: 1.2em;
+				width: 15%;
+			}
+			&__text {
+				color: #04a4ff;
+			}
 		}
 		&-input {
 			border: none;
@@ -73,6 +82,7 @@ body {
 			color: #04a4ff;
 			font-size: 1.5rem;
 			outline: none;
+			border: 1px solid rgb(212, 212, 212);
 		}
 		&-error {
 			color: rgb(253, 55, 55);
@@ -81,10 +91,16 @@ body {
 		}
 		&-btn {
 			padding: 1em 2em;
-			width: 120px;
+			width: 60%;
+			color: #10699c;
 			border-radius: 10px;
 			border: none;
 			cursor: pointer;
+			transition: background-color 0.4s, color 0.4s;
+			&:hover {
+				background-color: #c5c5c5;
+				color: #04a4ff;
+			}
 		}
 	}
 }

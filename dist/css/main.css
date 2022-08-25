@@ -24,7 +24,7 @@ body {
   background-color: black;
   width: 100vw;
   height: 100vh;
-  opacity: 0.6;
+  opacity: 0.3;
   z-index: -100;
 }
 
@@ -56,16 +56,11 @@ body {
   transition: opacity 0.3s, -webkit-transform 0.3s;
   transition: transform 0.3s, opacity 0.3s;
   transition: transform 0.3s, opacity 0.3s, -webkit-transform 0.3s;
-  background-color: #ff9a8b;
-  background-image: -webkit-gradient(linear, left top, right top, from(#ff9a8b), color-stop(55%, #ff6a88), to(#ff99ac));
-  background-image: linear-gradient(90deg, #ff9a8b 0%, #ff6a88 55%, #ff99ac 100%);
-}
-
-.panel__img {
-  position: absolute;
-  top: 1.5em;
-  left: 1.5em;
-  width: 20%;
+  background-image: url("/img/bgc_cloud.jpg");
+  background-position: center;
+  background-size: cover;
+  -webkit-animation: backgroundMove 1s;
+          animation: backgroundMove 1s;
 }
 
 .panel__wrapper {
@@ -87,9 +82,30 @@ body {
 }
 
 .panel__wrapper-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
   text-align: center;
   padding: 1em;
-  font-size: 1.6rem;
+  font-size: 1rem;
+}
+
+.panel__wrapper-header__img {
+  position: absolute;
+  top: 1.2em;
+  left: 1.2em;
+  width: 15%;
+}
+
+.panel__wrapper-header__text {
+  color: #04a4ff;
 }
 
 .panel__wrapper-input {
@@ -101,6 +117,7 @@ body {
   color: #04a4ff;
   font-size: 1.5rem;
   outline: none;
+  border: 1px solid #d4d4d4;
 }
 
 .panel__wrapper-error {
@@ -111,10 +128,18 @@ body {
 
 .panel__wrapper-btn {
   padding: 1em 2em;
-  width: 120px;
+  width: 60%;
+  color: #10699c;
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  -webkit-transition: background-color 0.4s, color 0.4s;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.panel__wrapper-btn:hover {
+  background-color: #c5c5c5;
+  color: #04a4ff;
 }
 
 .app {

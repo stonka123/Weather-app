@@ -55,7 +55,15 @@ const showPanel = () => {
 	appMain.classList.remove('show')
 }
 
+const enterCheck = e => {
+	if (e.key === 'Enter') {
+		getWeather()
+	}
+}
+
 searchBtn.addEventListener('click', () => {
 	setTimeout(getWeather, 10)
 })
+
 backBtn.addEventListener('click', showPanel)
+inputCity.addEventListener('keyup', enterCheck)
