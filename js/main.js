@@ -16,6 +16,11 @@ const maxTempValue = document.querySelector('.app__mid-container-text--max')
 const humidityValue = document.querySelector('.humidity')
 const warning = document.querySelector('.panel__wrapper-error')
 
+// settings
+const settingsBtn = document.querySelector('.settings-btn')
+const settingsDashboard = document.querySelector('.settings')
+const settingsClose = document.querySelector('.settings__close')
+
 const API_LINK = 'https://api.openweathermap.org/data/2.5/weather?q='
 const API_KEY = '&appid=a967b379e49952ca75115e9a5819ac5a'
 const API_UNITS = '&units=metric'
@@ -72,7 +77,6 @@ const getWeather = () => {
 		})
 		.catch(() => {
 			warning.textContent = 'Please enter a valid city name'
-			warning.classList.add('show')
 		})
 }
 
@@ -84,12 +88,20 @@ const showApp = () => {
 const showPanel = () => {
 	panel.classList.remove('translate-right')
 	appMain.classList.remove('show')
+	// inputCity.value = ''
 }
 
 const enterCheck = e => {
 	if (e.key === 'Enter') {
 		getWeather()
 	}
+}
+
+const showSettings = () => {
+	settingsDashboard.classList.add('display-flex')
+}
+const closeSettings = () => {
+	settingsDashboard.classList.remove('display-flex')
 }
 
 searchBtn.addEventListener('click', () => {
@@ -100,3 +112,5 @@ backBtn.addEventListener('click', () => {
 })
 
 inputCity.addEventListener('keyup', enterCheck)
+settingsBtn.addEventListener('click', showSettings)
+settingsClose.addEventListener('click', closeSettings)

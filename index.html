@@ -24,17 +24,17 @@
                     <h1 class="panel__wrapper-header__text">Weather App</h1>
                 </div>
 
-                <input type="text" class="panel__wrapper-input" placeholder="Szukaj miasto....">
-                <p class="panel__wrapper-error">Please enter a valid city name</p>
+                <input type="text" class="panel__wrapper-input" placeholder="Szukaj miasta....">
+                <p class="panel__wrapper-error"></p>
                 <button class="panel__wrapper-btn">Szukaj</button>
             </div>
         </div>
         <div class="app">
             <div class="bgc"></div>
             <div class="app__top">
-                <button class="app__top-icon icons-ux"><i class="fas fa-map-marker-alt"></i></button>
+                <button class="app__top-icon icons-ux localization-btn"><i class="fas fa-map-marker-alt"></i></button>
                 <p class="app__top-city">Lion</p>
-                <button class="app__top-icon icons-ux"><i class="fas fa-cog"></i></button>
+                <button class="app__top-icon icons-ux settings-btn"><i class="fas fa-cog"></i></button>
             </div>
             <div class="app__mid">
                 <img src="img/rainy.png" alt="" class="app__mid-img">
@@ -84,6 +84,30 @@
             </div>
         </div>
     </div>
+    <div class="settings">
+        <p class="settings__header">Settings</p>
+        <div class="settings__container">
+            <p class="settings__container-header">
+                <i class="fa-solid fa-globe settings__container-header-icon"></i>Language
+            </p>
+            <label class="settings__container-label"><input class="settings__container-header-input" name="language"
+                    type="radio" value="eng" checked>ENG</label>
+            <label class="settings__container-label"><input class="settings__container-header-input" name="language"
+                    type="radio" value="pl">PL</label>
+        </div>
+        <div class="settings__container">
+            <p class="settings__container-header">
+                <i class="fa-solid fa-rotate settings__container-header-icon"></i>Units of measurement
+            </p>
+            <label class="settings__container-label"><input class="settings__container-header-input" name="measurement"
+                    type="radio" value="metric" checked>Metric</label>
+            <label class="settings__container-label"><input class="settings__container-header-input" name="measurement"
+                    type="radio" value="imperial">Imperial</label>
+        </div>
+        <button class="settings__close">Close</button>
+    </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/main.js"></script>
