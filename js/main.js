@@ -3,6 +3,7 @@ const backBtn = document.querySelector('.app__footer-back')
 const panel = document.querySelector('.panel')
 const cityName = document.querySelector('.app__top-city')
 const appMain = document.querySelector('.app')
+const photo = document.querySelector('.app__mid-img')
 const inputCity = document.querySelector('.panel__wrapper-input')
 const temperature = document.querySelector('.temperature')
 const weather = document.querySelector('.weather')
@@ -18,7 +19,7 @@ const warning = document.querySelector('.panel__wrapper-error')
 const API_LINK = 'https://api.openweathermap.org/data/2.5/weather?q='
 const API_KEY = '&appid=a967b379e49952ca75115e9a5819ac5a'
 const API_UNITS = '&units=metric'
-const API_LANG = '&lang=pl'
+const API_LANG = '&lang=en'
 
 const getWeather = () => {
 	const city = inputCity.value
@@ -27,7 +28,7 @@ const getWeather = () => {
 	axios
 		.get(URL)
 		.then(res => {
-			console.log(res)
+			console.log(res.data.weather[0].id)
 			warning.textContent = ''
 			const weath = res.data.weather[0].main
 			const desc = res.data.weather[0].description
@@ -37,6 +38,7 @@ const getWeather = () => {
 			const temp = res.data.main.temp
 			const hum = res.data.main.humidity
 			const press = res.data.main.pressure
+			const statusCode = res.data.weather[0].id
 
 			let unicodeDegCel = '℃'
 			let unicodeMetSec = '㎧'
@@ -49,6 +51,24 @@ const getWeather = () => {
 			humidityValue.textContent = hum + ' ' + '%'
 			pressureValue.textContent = press + ' ' + '㍱'
 			showApp()
+
+			if (statusCode >= 200 && statusCode <= 232) {
+				photo.setAttribute('src', './img/thunderstorm.png')
+			} else if (statusCode >= 300 && statusCode <= 532) {
+				photo.setAttribute('src', './img/rainy.png')
+			} else if (statusCode >= 600 && statusCode <= 622) {
+				photo.setAttribute('src', './img/snow.png')
+			} else if (statusCode >= 700 && statusCode <= 771) {
+				photo.setAttribute('src', './img/weather-alert.png')
+			} else if (statusCode >= 700 && statusCode <= 771) {
+				photo.setAttribute('src', './img/weather-alert.png')
+			} else if (statusCode === 781) {
+				photo.setAttribute('src', './img/tornado.png')
+			} else if (statusCode === 800) {
+				photo.setAttribute('src', './img/sun.png')
+			} else if (statusCode >= 801 && statusCode <= 804) {
+				photo.setAttribute('src', './img/cloudy-day.png')
+			}
 		})
 		.catch(() => {
 			warning.textContent = 'Please enter a valid city name'
