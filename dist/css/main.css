@@ -11,7 +11,7 @@ body {
   font-size: 62.5%;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
-  background-image: url("./img/body_bgc.jpg");
+  background-image: url("../../img/body_bgc.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -56,7 +56,7 @@ body {
   transition: opacity 0.2s, -webkit-transform 0.4s;
   transition: transform 0.4s, opacity 0.2s;
   transition: transform 0.4s, opacity 0.2s, -webkit-transform 0.4s;
-  background-image: url("./img/bgc_cloud.jpg");
+  background-image: url("../../img/bgc_cloud.jpg");
   background-position: center;
   background-size: cover;
   z-index: 10;
