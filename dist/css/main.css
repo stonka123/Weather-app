@@ -495,7 +495,7 @@ body {
 
 .bgc {
   position: absolute;
-  background-image: url("/img/app_bgc.jpg");
+  background-image: url("../../img/app_bgc.jpg");
   background-position: center;
   background-size: cover;
   -webkit-filter: brightness(0.65) blur(5px);
