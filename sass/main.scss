@@ -11,7 +11,7 @@ body {
 	color: #fff;
 	font-family: 'Montserrat', sans-serif;
 
-	background-image: url('/img/body_bgc.jpg');
+	background-image: url('./img/body_bgc.jpg');
 	background-size: cover;
 	background-position: center;
 }
@@ -43,7 +43,7 @@ body {
 	transform: translateX(0);
 	opacity: 1;
 	transition: transform 0.4s, opacity 0.2s;
-	background-image: url('/img/bgc_cloud.jpg');
+	background-image: url('./img/bgc_cloud.jpg');
 	background-position: center;
 	background-size: cover;
 	z-index: 10;
