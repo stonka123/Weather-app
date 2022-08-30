@@ -91,19 +91,48 @@ const getWeather = (lang = API_LANG) => {
 		})
 }
 
-const getPosition = () => {
-	axios
-		.get('http://ip-api.com/json/')
-		.then(res => {
-			console.log(res.data.city)
-			const localizationCity = res.data.city
-			cityName.textContent = res.data.city
-			console.log(cityName.textContent)
-		})
-		.catch(() => {
-			console.log('error!!')
-		})
+// const getPosition = () => {
+// 	axios
+// 		.get('http://ip-api.com/json/')
+// 		.then(res => {
+// 			console.log(res.data.city)
+// 			const localizationCity = res.data.city
+// 			cityName.textContent = res.data.city
+// 			console.log(cityName.textContent)
+// 		})
+// 		.catch(() => {
+// 			console.log('error!!')
+// 		})
+// }
+function geoFindMe() {
+	const status = document.querySelector('#status')
+	const mapLink = document.querySelector('#map-link')
+
+	mapLink.href = ''
+	mapLink.textContent = ''
+
+	function success(position) {
+		const latitude = position.coords.latitude
+		const longitude = position.coords.longitude
+
+		status.textContent = ''
+		mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
+		mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`
+	}
+
+	function error() {
+		status.textContent = 'Unable to retrieve your location'
+	}
+
+	if (!navigator.geolocation) {
+		status.textContent = 'Geolocation is not supported by your browser'
+	} else {
+		status.textContent = 'Locating…'
+		navigator.geolocation.getCurrentPosition(success, error)
+	}
 }
+
+document.querySelector('#find-me').addEventListener('click', geoFindMe)
 
 const showApp = () => {
 	panel.classList.add('translate-right')
@@ -143,4 +172,4 @@ backBtn.addEventListener('click', () => {
 inputCity.addEventListener('keyup', enterCheck)
 settingsBtn.addEventListener('click', showSettings)
 settingsClose.addEventListener('click', closeSettings)
-localizationBtn.addEventListener('click', getPosition)
+// localizationBtn.addEventListener('click', getPosition)
