@@ -39,7 +39,7 @@ const getUrl = (city, lang) => {
 }
 
 const getWeather = (lang = API_LANG) => {
-	const city = inputCity.value
+	let city = inputCity.value
 	const URL = getUrl(city, lang)
 	axios
 		.get(URL)
@@ -91,24 +91,10 @@ const getWeather = (lang = API_LANG) => {
 		})
 }
 
-// const getPosition = () => {
-// 	axios
-// 		.get('http://ip-api.com/json/')
-// 		.then(res => {
-// 			console.log(res.data.city)
-// 			const localizationCity = res.data.city
-// 			cityName.textContent = res.data.city
-// 			console.log(cityName.textContent)
-// 		})
-// 		.catch(() => {
-// 			console.log('error!!')
-// 		})
-// }
 function geoFindMe() {
 	const status = document.querySelector('#status')
 	const mapLink = document.querySelector('#map-link')
 
-	mapLink.href = ''
 	mapLink.textContent = ''
 
 	function success(position) {
@@ -116,8 +102,25 @@ function geoFindMe() {
 		const longitude = position.coords.longitude
 
 		status.textContent = ''
+
 		mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
 		mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`
+		console.log(
+			`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
+		)
+		axios
+			.get(
+				`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
+			)
+			.then(res => {
+				const localizationCity = res.data.address.city
+				cityName.textContent = localizationCity
+				
+
+			})
+			.catch(() => {
+				console.log('error!')
+			})
 	}
 
 	function error() {
@@ -127,7 +130,7 @@ function geoFindMe() {
 	if (!navigator.geolocation) {
 		status.textContent = 'Geolocation is not supported by your browser'
 	} else {
-		status.textContent = 'Locating…'
+		cityName.textContent = 'Locating…'
 		navigator.geolocation.getCurrentPosition(success, error)
 	}
 }
@@ -172,4 +175,3 @@ backBtn.addEventListener('click', () => {
 inputCity.addEventListener('keyup', enterCheck)
 settingsBtn.addEventListener('click', showSettings)
 settingsClose.addEventListener('click', closeSettings)
-// localizationBtn.addEventListener('click', getPosition)
