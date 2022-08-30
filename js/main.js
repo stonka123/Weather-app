@@ -115,8 +115,8 @@ function geoFindMe() {
 			.then(res => {
 				const localizationCity = res.data.address.city
 				cityName.textContent = localizationCity
-				
-
+				inputCity.value = localizationCity
+				getWeather()
 			})
 			.catch(() => {
 				console.log('error!')
