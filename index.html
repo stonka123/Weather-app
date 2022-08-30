@@ -17,10 +17,11 @@
     <div class="shadow"></div>
     <!-- ICON <a href="https://www.flaticon.com/free-icons/road-sign" title="road sign icons">Road sign icons created by bukeicon - Flaticon</a> -->
     <div class="wrapper ">
-        <div class="panel ">
+        <div class="panel">
+            <img src="./img/eclipse(1).png" class="panel__img rotate-center" alt="">
             <div class="panel__wrapper">
                 <div class="panel__wrapper-header">
-                    <img src="./img/mobile-phone.png" alt="" class="panel__wrapper-header__img">
+                    <img src="./img/mobile-phone.png" alt="" class="panel__wrapper-header__img jello-horizontal">
                     <h1 class="panel__wrapper-header__text">Weather App</h1>
                 </div>
 
@@ -32,7 +33,9 @@
         <div class="app">
             <div class="bgc"></div>
             <div class="app__top">
-                <button class="app__top-icon icons-ux localization-btn"><i class="fas fa-map-marker-alt"></i></button>
+                <button id="find-me" class="app__top-icon icons-ux localization-btn"><i
+                        class="fas fa-map-marker-alt"></i></button>
+
                 <p class="app__top-city">Lion</p>
                 <button class="app__top-icon icons-ux settings-btn"><i class="fas fa-cog"></i></button>
             </div>
@@ -90,10 +93,10 @@
             <p class="settings__container-header">
                 <i class="fa-solid fa-globe settings__container-header-icon"></i>Language
             </p>
-            <label class="settings__container-label"><input class="settings__container-header-input" name="language"
-                    type="radio" value="eng" checked>ENG</label>
-            <label class="settings__container-label"><input class="settings__container-header-input" name="language"
-                    type="radio" value="pl">PL</label>
+            <label class="settings__container-label"><input class="settings__container-header-input pl-input"
+                    name="language" type="radio" value="eng" checked>ENG</label>
+            <label class="settings__container-label"><input class="settings__container-header-input pl-input"
+                    name="language" type="radio" value="pl">PL</label>
         </div>
         <div class="settings__container">
             <p class="settings__container-header">

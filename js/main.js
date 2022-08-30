@@ -5,6 +5,7 @@ const cityName = document.querySelector('.app__top-city')
 const appMain = document.querySelector('.app')
 const photo = document.querySelector('.app__mid-img')
 const inputCity = document.querySelector('.panel__wrapper-input')
+const localizationBtn = document.querySelector('.localization-btn')
 const temperature = document.querySelector('.temperature')
 const weather = document.querySelector('.weather')
 const windValue = document.querySelector('.wind')
@@ -21,19 +22,29 @@ const settingsBtn = document.querySelector('.settings-btn')
 const settingsDashboard = document.querySelector('.settings')
 const settingsClose = document.querySelector('.settings__close')
 
+const plInput = document.querySelectorAll('.pl-input')
+
 const API_LINK = 'https://api.openweathermap.org/data/2.5/weather?q='
 const API_KEY = '&appid=a967b379e49952ca75115e9a5819ac5a'
 const API_UNITS = '&units=metric'
 const API_LANG = '&lang=en'
+const API_LANG_PL = '&lang=pl'
 
-const getWeather = () => {
+const getUrl = (city, lang) => {
+	let basicUrl = API_LINK + city + API_KEY + API_UNITS
+	if (lang === 'pl') {
+		return basicUrl + API_LANG_PL
+	}
+	return basicUrl + API_LANG
+}
+
+const getWeather = (lang = API_LANG) => {
 	const city = inputCity.value
-	const URL = API_LINK + city + API_KEY + API_UNITS + API_LANG
-
+	const URL = getUrl(city, lang)
 	axios
 		.get(URL)
 		.then(res => {
-			console.log(res.data.weather[0].id)
+			console.log(URL)
 			warning.textContent = ''
 			const weath = res.data.weather[0].main
 			const desc = res.data.weather[0].description
@@ -80,6 +91,20 @@ const getWeather = () => {
 		})
 }
 
+const getPosition = () => {
+	axios
+		.get('http://ip-api.com/json/')
+		.then(res => {
+			console.log(res.data.city)
+			const localizationCity = res.data.city
+			cityName.textContent = res.data.city
+			console.log(cityName.textContent)
+		})
+		.catch(() => {
+			console.log('error!!')
+		})
+}
+
 const showApp = () => {
 	panel.classList.add('translate-right')
 	appMain.classList.add('show')
@@ -88,6 +113,7 @@ const showApp = () => {
 const showPanel = () => {
 	panel.classList.remove('translate-right')
 	appMain.classList.remove('show')
+
 	// inputCity.value = ''
 }
 
@@ -98,15 +124,18 @@ const enterCheck = e => {
 }
 
 const showSettings = () => {
-	settingsDashboard.classList.add('display-flex')
+	settingsDashboard.classList.toggle('display-flex')
 }
 const closeSettings = () => {
 	settingsDashboard.classList.remove('display-flex')
 }
 
-searchBtn.addEventListener('click', () => {
-	setTimeout(getWeather, 50)
+plInput.forEach(item => {
+	item.addEventListener('change', () => {
+		getWeather(item.value)
+	})
 })
+searchBtn.addEventListener('click', getWeather)
 backBtn.addEventListener('click', () => {
 	setTimeout(showPanel, 50)
 })
@@ -114,3 +143,4 @@ backBtn.addEventListener('click', () => {
 inputCity.addEventListener('keyup', enterCheck)
 settingsBtn.addEventListener('click', showSettings)
 settingsClose.addEventListener('click', closeSettings)
+localizationBtn.addEventListener('click', getPosition)
