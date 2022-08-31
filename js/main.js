@@ -91,7 +91,6 @@ const getWeather = (lang = API_LANG) => {
 		})
 }
 
-
 function geoFindMe() {
 	const status = document.querySelector('#status')
 	const mapLink = document.querySelector('#map-link')
@@ -107,16 +106,17 @@ function geoFindMe() {
 		mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
 		mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`
 		console.log(
-			`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
+			`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=1`
 		)
 		axios
 			.get(
-				`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
+				`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=1`
 			)
 			.then(res => {
 				const localizationCity = res.data.address.city
 				cityName.textContent = localizationCity
 				inputCity.value = localizationCity
+
 				getWeather()
 			})
 			.catch(() => {
@@ -151,7 +151,6 @@ const showPanel = () => {
 
 	// inputCity.value = ''
 }
-
 const enterCheck = e => {
 	if (e.key === 'Enter') {
 		getWeather()
