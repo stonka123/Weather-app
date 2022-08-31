@@ -90,6 +90,12 @@ const getWeather = (lang = API_LANG) => {
 			warning.textContent = 'Please enter a valid city name'
 		})
 }
+window.onload = () => {
+	// getLocation()
+	console.log('dziala?')
+	// geoFindMe()
+	document.querySelector('#find-me').addEventListener('click', geoFindMe)
+}
 
 function geoFindMe() {
 	const status = document.querySelector('#status')
@@ -135,7 +141,7 @@ function geoFindMe() {
 	}
 }
 
-document.querySelector('#find-me').addEventListener('click', geoFindMe)
+// document.querySelector('#find-me').addEventListener('click', geoFindMe)
 
 const showApp = () => {
 	panel.classList.add('translate-right')
@@ -172,32 +178,6 @@ backBtn.addEventListener('click', () => {
 	setTimeout(showPanel, 50)
 })
 
-window.onload = () => {
-	getLocation()
-
-	// or
-	// calling geolocation on click
-	// myButtonElement.addEventListener('submit', (evt) => {
-	//  evt.preventDefault();
-	//  getLocation()
-	// });
-}
-
-const successHandler = position => {
-	alert(position.coords.latitude)
-	alert(position.coords.longitude)
-}
-
-const errorHandler = errorObj => {
-	alert(errorObj.code + ': ' + errorObj.message)
-}
-
-const getLocation = () => {
-	navigator.geolocation.getCurrentPosition(successHandler, errorHandler, {
-		enableHighAccuracy: true,
-		maximumAge: 10000,
-	})
-}
 inputCity.addEventListener('keyup', enterCheck)
 settingsBtn.addEventListener('click', showSettings)
 settingsClose.addEventListener('click', closeSettings)
