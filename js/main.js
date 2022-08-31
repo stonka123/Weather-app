@@ -91,10 +91,7 @@ const getWeather = (lang = API_LANG) => {
 		})
 }
 
-window.onload = () => {
-	geoFindMe()
-	console.log('dziala?')
-}
+
 function geoFindMe() {
 	const status = document.querySelector('#status')
 	const mapLink = document.querySelector('#map-link')
