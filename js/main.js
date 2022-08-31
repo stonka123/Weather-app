@@ -171,7 +171,20 @@ searchBtn.addEventListener('click', getWeather)
 backBtn.addEventListener('click', () => {
 	setTimeout(showPanel, 50)
 })
+window.onload = () => {
+	// geoFindMe()
+	document.querySelector('#find-me').addEventListener('submit', e => {
+		e.preventDefault()
+		geoFindMe()
+	})
 
+	// or
+	// calling geolocation on click
+	// myButtonElement.addEventListener('submit', (evt) => {
+	//  evt.preventDefault();
+	//  getLocation()
+	// });
+}
 inputCity.addEventListener('keyup', enterCheck)
 settingsBtn.addEventListener('click', showSettings)
 settingsClose.addEventListener('click', closeSettings)
