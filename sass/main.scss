@@ -48,6 +48,7 @@ body {
 	background-size: cover;
 	z-index: 10;
 	overflow: hidden;
+	max-height: 900px;
 	&__img {
 		position: absolute;
 		top: 0;
@@ -86,6 +87,7 @@ body {
 			border: none;
 			padding: 0.5em 1em;
 			width: 80%;
+			max-width: 500px;
 			height: 50px;
 			border-radius: 10px;
 			color: #04a4ff;
@@ -100,7 +102,8 @@ body {
 		}
 		&-btn {
 			padding: 1em 2em;
-			width: 60%;
+			width: 80%;
+			max-width: 500px;
 			color: #10699c;
 			border-radius: 10px;
 			border: none;
@@ -174,6 +177,7 @@ body {
 		padding: 0.7em 0.5em;
 		margin-top: 0.5em;
 		font-size: 1.2rem;
+
 		&-icon {
 			color: #fff;
 			background: none;
@@ -184,6 +188,7 @@ body {
 		}
 		&-city {
 			text-align: center;
+			width: 60%;
 			font-weight: bold;
 		}
 	}
@@ -195,6 +200,7 @@ body {
 		flex-direction: column;
 		margin: 1em auto;
 		width: 100%;
+
 		&-img {
 			display: flex;
 			align-items: center;
@@ -241,14 +247,13 @@ body {
 		font-size: 1rem;
 		width: 100%;
 		text-transform: uppercase;
-
 		&-section {
 			width: 100%;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			padding: 0.3em 1.5em;
-			margin: 0.3em 0.5em;
+			margin: 0.4em 0.5em;
 			&-option {
 				display: flex;
 				align-items: center;
@@ -262,8 +267,10 @@ body {
 	}
 	&__footer {
 		&-back {
-			position: absolute;
-			color: #fff;
+			// DOKONCZYC
+			// position: absolute;
+			align-self: flex-end;
+			color: #c5c5c5;
 			bottom: 1em;
 			background: none;
 			padding: 1em 0.5em;
@@ -362,9 +369,34 @@ body {
 	.panel {
 		border-radius: 20px;
 		box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+		max-height: 700px;
 	}
 	.app {
 		border-radius: 20px;
 		box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+		max-height: 700px;
+
+		&__mid {
+			&-img {
+				width: 20%;
+			}
+		}
+		&__bottom {
+			justify-content: center;
+			width: 80%;
+			margin: 0 auto;
+			&-section {
+				padding: 0.3em 1.5em;
+				margin: 0.4em 2em;
+			}
+		}
+		&__footer {
+			&-back {
+				font-size: 1.3rem;
+			}
+		}
+	}
+	.icons-ux {
+		font-size: 1.6rem;
 	}
 }

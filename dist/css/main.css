@@ -61,6 +61,7 @@ body {
   background-size: cover;
   z-index: 10;
   overflow: hidden;
+  max-height: 900px;
 }
 
 .panel__img {
@@ -121,6 +122,7 @@ body {
   border: none;
   padding: 0.5em 1em;
   width: 80%;
+  max-width: 500px;
   height: 50px;
   border-radius: 10px;
   color: #04a4ff;
@@ -136,7 +138,8 @@ body {
 
 .panel__wrapper-btn {
   padding: 1em 2em;
-  width: 60%;
+  width: 80%;
+  max-width: 500px;
   color: #10699c;
   border-radius: 10px;
   border: none;
@@ -286,6 +289,7 @@ body {
 
 .app__top-city {
   text-align: center;
+  width: 60%;
   font-weight: bold;
 }
 
@@ -396,7 +400,7 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0.3em 1.5em;
-  margin: 0.3em 0.5em;
+  margin: 0.4em 0.5em;
 }
 
 .app__bottom-section-option {
@@ -414,8 +418,9 @@ body {
 }
 
 .app__footer-back {
-  position: absolute;
-  color: #fff;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: #c5c5c5;
   bottom: 1em;
   background: none;
   padding: 1em 0.5em;
@@ -537,11 +542,33 @@ body {
     border-radius: 20px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    max-height: 700px;
   }
   .app {
     border-radius: 20px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    max-height: 700px;
+  }
+  .app__mid-img {
+    width: 20%;
+  }
+  .app__bottom {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .app__bottom-section {
+    padding: 0.3em 1.5em;
+    margin: 0.4em 2em;
+  }
+  .app__footer-back {
+    font-size: 1.3rem;
+  }
+  .icons-ux {
+    font-size: 1.6rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

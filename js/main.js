@@ -45,6 +45,7 @@ const getWeather = (lang = API_LANG) => {
 		.get(URL)
 		.then(res => {
 			console.log(URL)
+			console.log(res.data.weather[0].main)
 			warning.textContent = ''
 			const weath = res.data.weather[0].main
 			const desc = res.data.weather[0].description
@@ -59,6 +60,7 @@ const getWeather = (lang = API_LANG) => {
 			let unicodeDegCel = '℃'
 			let unicodeMetSec = '㎧'
 			cityName.textContent = res.data.name
+			weather.textContent = weath
 			temperature.textContent = Math.round(temp) + ' ' + unicodeDegCel
 			feelValue.textContent = feel.toFixed(0) + '' + unicodeDegCel
 			maxTempValue.textContent = maxTemp.toFixed(0) + '' + unicodeDegCel
@@ -106,11 +108,11 @@ function geoFindMe() {
 		mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
 		mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`
 		console.log(
-			`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=1`
+			`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
 		)
 		axios
 			.get(
-				`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=1`
+				`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
 			)
 			.then(res => {
 				const localizationCity = res.data.address.city
@@ -149,7 +151,7 @@ const showPanel = () => {
 	panel.classList.remove('translate-right')
 	appMain.classList.remove('show')
 
-	// inputCity.value = ''
+	inputCity.value = cityName.textContent
 }
 const enterCheck = e => {
 	if (e.key === 'Enter') {
@@ -157,9 +159,6 @@ const enterCheck = e => {
 	}
 }
 
-const showSettings = () => {
-	settingsDashboard.classList.toggle('display-flex')
-}
 const closeSettings = () => {
 	settingsDashboard.classList.remove('display-flex')
 }
@@ -169,11 +168,21 @@ plInput.forEach(item => {
 		getWeather(item.value)
 	})
 })
+
+document.querySelector('.wrapper').addEventListener('click', e => {
+	const closestSettingsBtn = e.target.closest('.settings-btn')
+
+	if (closestSettingsBtn) {
+		settingsDashboard.classList.toggle('display-flex')
+	} else if (!closestSettingsBtn && settingsDashboard.classList.contains('display-flex')) {
+		settingsDashboard.classList.remove('display-flex')
+	}
+})
+
 searchBtn.addEventListener('click', getWeather)
 backBtn.addEventListener('click', () => {
 	setTimeout(showPanel, 50)
 })
-
 inputCity.addEventListener('keyup', enterCheck)
-settingsBtn.addEventListener('click', showSettings)
+
 settingsClose.addEventListener('click', closeSettings)
