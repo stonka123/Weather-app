@@ -172,11 +172,11 @@ backBtn.addEventListener('click', () => {
 	setTimeout(showPanel, 50)
 })
 window.onload = () => {
-	// geoFindMe()
-	document.querySelector('#find-me').addEventListener('submit', e => {
-		e.preventDefault()
-		geoFindMe()
-	})
+	geoFindMe()
+	// document.querySelector('#find-me').addEventListener('submit', e => {
+	// 	e.preventDefault()
+	// 	geoFindMe()
+	// })
 
 	// or
 	// calling geolocation on click
