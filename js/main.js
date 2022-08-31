@@ -90,15 +90,11 @@ const getWeather = (lang = API_LANG) => {
 			warning.textContent = 'Please enter a valid city name'
 		})
 }
-window.onload = () => {
-	// getLocation()
-	console.log('dziala?')
-	// geoFindMe()
-	document.querySelector('#find-me').addEventListener('click', e => {
-		geoFindMe()
-	})
-}
 
+window.onload = () => {
+	geoFindMe()
+	console.log('dziala?')
+}
 function geoFindMe() {
 	const status = document.querySelector('#status')
 	const mapLink = document.querySelector('#map-link')
@@ -145,7 +141,7 @@ function geoFindMe() {
 	}
 }
 
-// document.querySelector('#find-me').addEventListener('click', geoFindMe)
+document.querySelector('#find-me').addEventListener('click', geoFindMe)
 
 const showApp = () => {
 	panel.classList.add('translate-right')
