@@ -94,7 +94,9 @@ window.onload = () => {
 	// getLocation()
 	console.log('dziala?')
 	// geoFindMe()
-	document.querySelector('#find-me').addEventListener('click', geoFindMe)
+	document.querySelector('#find-me').addEventListener('click', e => {
+		geoFindMe()
+	})
 }
 
 function geoFindMe() {
