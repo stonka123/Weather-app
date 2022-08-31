@@ -171,12 +171,9 @@ searchBtn.addEventListener('click', getWeather)
 backBtn.addEventListener('click', () => {
 	setTimeout(showPanel, 50)
 })
+
 window.onload = () => {
-	geoFindMe()
-	// document.querySelector('#find-me').addEventListener('submit', e => {
-	// 	e.preventDefault()
-	// 	geoFindMe()
-	// })
+	getLocation()
 
 	// or
 	// calling geolocation on click
@@ -184,6 +181,22 @@ window.onload = () => {
 	//  evt.preventDefault();
 	//  getLocation()
 	// });
+}
+
+const successHandler = position => {
+	alert(position.coords.latitude)
+	alert(position.coords.longitude)
+}
+
+const errorHandler = errorObj => {
+	alert(errorObj.code + ': ' + errorObj.message)
+}
+
+const getLocation = () => {
+	navigator.geolocation.getCurrentPosition(successHandler, errorHandler, {
+		enableHighAccuracy: true,
+		maximumAge: 10000,
+	})
 }
 inputCity.addEventListener('keyup', enterCheck)
 settingsBtn.addEventListener('click', showSettings)
