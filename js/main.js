@@ -128,7 +128,6 @@ function geoFindMe() {
 				console.log('error!')
 			})
 	}
-
 	function error() {
 		status.textContent = 'Unable to retrieve your location'
 	}
