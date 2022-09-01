@@ -130,7 +130,8 @@ function geoFindMe() {
 	}
 
 	if (!navigator.geolocation) {
-		status.textContent = 'Geolocation is not supported by your browser'
+		const status = 'Geolocation is not supported by your browser'
+		alert(status)
 	} else {
 		cityName.textContent = 'Locating…'
 		navigator.geolocation.getCurrentPosition(success, error, {
