@@ -65,9 +65,9 @@ body {
 
 .panel__img {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 100px;
+  top: -100px;
+  right: -100px;
+  width: 200px;
   z-index: -1;
   opacity: 0.5;
 }
@@ -101,19 +101,19 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
+  height: 80px;
   text-align: center;
   padding: 1em;
   font-size: 1rem;
 }
 
 .panel__wrapper-header__img {
-  position: absolute;
-  top: 1.2em;
-  left: 1.2em;
-  width: 15%;
+  height: 100%;
+  margin-right: 0.5em;
 }
 
 .panel__wrapper-header__text {
+  font-size: 1.7rem;
   color: #04a4ff;
 }
 
@@ -131,30 +131,90 @@ body {
   border-bottom: 2px solid #2e5a8b;
 }
 
+.panel__wrapper-input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.panel__wrapper-input:-ms-input-placeholder {
+  text-align: center;
+}
+
+.panel__wrapper-input::-ms-input-placeholder {
+  text-align: center;
+}
+
+.panel__wrapper-input::placeholder {
+  text-align: center;
+}
+
 .panel__wrapper-error {
+  margin-top: 1em;
   color: #fd3737;
   font-size: 1rem;
 }
 
 .panel__wrapper-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: 1.2rem;
   padding: 0.5em 1em;
   margin-top: 2em;
-  max-width: 500px;
   color: #10699c;
-  border-radius: 10px;
+  border-radius: 30px;
   border: none;
   cursor: pointer;
   -webkit-transition: background-color 0.4s, color 0.4s;
   transition: background-color 0.4s, color 0.4s;
   width: 200px;
-  max-width: 200px;
   color: #01253a;
 }
 
 .panel__wrapper-btn:hover {
   background-color: #c5c5c5;
   color: #04a4ff;
+}
+
+.panel__wrapper-btn-icon {
+  margin-right: 1em;
+}
+
+.localization-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.2rem;
+  padding: 0.5em 1em;
+  margin-top: 2em;
+  color: #10699c;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: background-color 0.4s, color 0.4s;
+  transition: background-color 0.4s, color 0.4s;
+  width: 200px;
+  color: #01253a;
+}
+
+.localization-panel:hover {
+  background-color: #c5c5c5;
+  color: #04a4ff;
+}
+
+.localization-panel-icon {
+  margin-right: 1em;
 }
 
 .app {
@@ -471,37 +531,9 @@ body {
   max-width: 500px;
 }
 
-.localization-panel {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background: #fff;
-  border-radius: 8px;
-  width: 200px;
-  max-width: 200px;
-  color: #01253a;
-  -webkit-transition: background-color 0.4s, color 0.4s;
-  transition: background-color 0.4s, color 0.4s;
-}
-
-.localization-panel:hover {
-  background-color: #c5c5c5;
-  color: #04a4ff;
-}
-
-.localization-panel-icon {
-  margin-right: 1em;
-}
-
 .rotate-center {
-  -webkit-animation: rotate-center 15s linear infinite;
-          animation: rotate-center 15s linear infinite;
+  -webkit-animation: rotate-center 30s linear infinite;
+          animation: rotate-center 30s linear infinite;
 }
 
 .jello-horizontal {
@@ -600,6 +632,12 @@ body {
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     max-height: 700px;
   }
+  .panel__wrapper-header {
+    height: 100px;
+  }
+  .panel__wrapper-header__text {
+    font-size: 3.3rem;
+  }
   .app {
     border-radius: 30px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -631,6 +669,7 @@ body {
     font-size: 1.2rem;
   }
   .app__footer-back {
+    margin-left: 4em;
     font-size: 1rem;
   }
   .icons-ux {

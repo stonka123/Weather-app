@@ -42,6 +42,7 @@ const getUrl = (city, lang) => {
 const getWeather = (lang = API_LANG) => {
 	let city = inputCity.value
 	const URL = getUrl(city, lang)
+
 	axios
 		.get(URL)
 		.then(res => {
@@ -93,7 +94,6 @@ const getWeather = (lang = API_LANG) => {
 			warning.textContent = 'Please enter a valid city name'
 		})
 }
-
 function geoFindMe() {
 	function success(position) {
 		const latitude = position.coords.latitude
@@ -124,17 +124,17 @@ function geoFindMe() {
 		alert('Unable to retrieve your location')
 	}
 
-	if (!navigator.geolocation) {
-		alert('Geolocation is not supported by your browser')
-	} else {
+	if (navigator.geolocation) {
 		cityName.textContent = 'Locating…'
+		console.log(navigator.geolocation)
 		navigator.geolocation.getCurrentPosition(success, error, {
-			enableHighAccuracy: true,
-			maximumAge: 10000,
+			// enableHighAccuracy: false,
+			maximumAge: 15000,
 		})
+	} else {
+		alert('Geolocation is not supported by your browser')
 	}
 }
-// document.querySelectorAll('.find-me').addEventListener('click', geoFindMe)
 
 const showApp = () => {
 	panel.classList.add('translate-right')
