@@ -134,7 +134,7 @@ function geoFindMe() {
 	} else {
 		cityName.textContent = 'Locating…'
 		navigator.geolocation.getCurrentPosition(success, error, {
-			enableHighAccuracy: true,
+			enableHighAccuracy: false,
 			maximumAge: 10000,
 		})
 	}
