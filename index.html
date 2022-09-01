@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="dist/css/main.css">
     <script src="https://kit.fontawesome.com/2c8b96ae6c.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div class="shadow"></div>
     <!-- ICON <a href="https://www.flaticon.com/free-icons/road-sign" title="road sign icons">Road sign icons created by bukeicon - Flaticon</a> -->
@@ -23,8 +24,11 @@
                     <img src="./img/mobile-phone.png" alt="" class="panel__wrapper-header__img jello-horizontal">
                     <h1 class="panel__wrapper-header__text">Weather App</h1>
                 </div>
-
-                <input type="text" class="panel__wrapper-input" placeholder="Szukaj miasta....">
+                <div class="container-input">
+                    <input type="text" class="panel__wrapper-input" placeholder="Szukaj miasta....">
+                    <button id="find-me" class="app__top-icon icons-ux localization-btn localization-panel find-mee"><i
+                            class="fas fa-map-marker-alt"></i></button>
+                </div>
                 <p class="panel__wrapper-error"></p>
                 <button class="panel__wrapper-btn">Szukaj</button>
             </div>
@@ -32,7 +36,7 @@
         <div class="app">
             <div class="bgc"></div>
             <div class="app__top">
-                <button id="find-me" class="app__top-icon icons-ux localization-btn"><i
+                <button id="find-me" class="app__top-icon icons-ux localization-btn find-mee"><i
                         class="fas fa-map-marker-alt"></i></button>
                 <!-- <p id="status"></p>
                 <a id="map-link" target="_blank"></a> -->
@@ -67,7 +71,7 @@
 
                 <div class="app__bottom-section">
                     <div class="app__bottom-section-option">
-                        <img src="img/eclipse(1).png" alt="" srcset="" class="app__bottom-section-option-icon">
+                        <img src="img/weather-app.png" alt="" srcset="" class="app__bottom-section-option-icon">
                         <p class="app__bottom-info-option">humidity: </p>
                     </div>
                     <p class="app__bottom-section-value humidity">85%</p>

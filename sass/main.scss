@@ -36,8 +36,8 @@ body {
 	overflow: hidden;
 }
 .panel {
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 	max-width: 992px;
 	position: absolute;
 	transform: translateX(0);
@@ -48,7 +48,7 @@ body {
 	background-size: cover;
 	z-index: 10;
 	overflow: hidden;
-	max-height: 900px;
+
 	&__img {
 		position: absolute;
 		top: 0;
@@ -109,6 +109,7 @@ body {
 			border: none;
 			cursor: pointer;
 			transition: background-color 0.4s, color 0.4s;
+
 			&:hover {
 				background-color: #c5c5c5;
 				color: #04a4ff;
@@ -116,50 +117,7 @@ body {
 		}
 	}
 }
-.rotate-center {
-	animation: rotate-center 15s linear infinite;
-}
 
-.jello-horizontal {
-	animation: jello-horizontal 0.9s both;
-}
-@keyframes rotate-center {
-	0% {
-		transform: rotate(0);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes jello-horizontal {
-	0% {
-		transform: scale3d(1, 1, 1);
-	}
-	30% {
-		transform: scale3d(1.25, 0.75, 1);
-	}
-	40% {
-		transform: scale3d(0.75, 1.25, 1);
-	}
-	50% {
-		transform: scale3d(1.15, 0.85, 1);
-	}
-	65% {
-		transform: scale3d(0.95, 1.05, 1);
-	}
-	75% {
-		transform: scale3d(1.05, 0.95, 1);
-	}
-	100% {
-		transform: scale3d(1, 1, 1);
-	}
-}
-
-// #status,
-// #map-link {
-// 	display: none;
-// }
 .app {
 	overflow: hidden;
 	position: relative;
@@ -175,10 +133,10 @@ body {
 		align-items: center;
 		justify-content: space-around;
 		width: 100%;
-		padding: 0.7em 0.5em;
+		padding: 0.4em;
 		margin-top: 0.5em;
 		font-size: 1.2rem;
-
+		height: 10%;
 		&-icon {
 			color: #fff;
 			background: none;
@@ -199,9 +157,9 @@ body {
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		margin: 1em auto;
+		margin: 0.5em auto;
 		width: 100%;
-
+		height: 40%;
 		&-img {
 			display: flex;
 			align-items: center;
@@ -248,6 +206,7 @@ body {
 		font-size: 1rem;
 		width: 100%;
 		text-transform: uppercase;
+		height: 40%;
 		&-section {
 			width: 100%;
 			display: flex;
@@ -267,6 +226,10 @@ body {
 		}
 	}
 	&__footer {
+		position: absolute;
+		bottom: 0;
+		height: 10%;
+		width: 100%;
 		&-back {
 			// DOKONCZYC
 			// position: absolute;
@@ -282,7 +245,7 @@ body {
 		}
 	}
 }
-
+// SETTINGS
 .settings {
 	display: none;
 	position: absolute;
@@ -339,13 +302,13 @@ body {
 		}
 	}
 }
-
+// OTHER CLASS
 .bgc {
 	position: absolute;
 	background-image: url('../../img/app_bgc.jpg');
 	background-position: center;
 	background-size: cover;
-	filter: brightness(0.65) blur(5px);
+	filter: brightness(0.6);
 	top: 0;
 	left: 0;
 	bottom: 0;
@@ -365,15 +328,75 @@ body {
 .display-none {
 	display: none;
 }
+.container-input {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 80%;
+	max-width: 500px;
+}
+.localization-panel {
+	background: #fff;
+	border-radius: 8px;
+	height: 50px;
+	width: 15%;
+	color: #04a4ff;
+	transition: background-color 0.4s, color 0.4s;
+	&:hover {
+		background-color: #c5c5c5;
+		color: #04a4ff;
+	}
+}
+// ANIMATION
+.rotate-center {
+	animation: rotate-center 15s linear infinite;
+}
+
+.jello-horizontal {
+	animation: jello-horizontal 0.9s both;
+}
+@keyframes rotate-center {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes jello-horizontal {
+	0% {
+		transform: scale3d(1, 1, 1);
+	}
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+	65% {
+		transform: scale3d(0.95, 1.05, 1);
+	}
+	75% {
+		transform: scale3d(1.05, 0.95, 1);
+	}
+	100% {
+		transform: scale3d(1, 1, 1);
+	}
+}
 
 @media (min-width: 992px) {
 	.panel {
-		border-radius: 20px;
+		border-radius: 30px;
 		box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 		max-height: 700px;
 	}
 	.app {
-		border-radius: 20px;
+		border-radius: 30px;
 		box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 		max-height: 700px;
 

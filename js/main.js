@@ -5,7 +5,8 @@ const cityName = document.querySelector('.app__top-city')
 const appMain = document.querySelector('.app')
 const photo = document.querySelector('.app__mid-img')
 const inputCity = document.querySelector('.panel__wrapper-input')
-const localizationBtn = document.querySelector('.localization-btn')
+// const localizationBtn = document.querySelector('.localization-btn')
+const localizationBtn = document.querySelectorAll('.find-mee')
 const temperature = document.querySelector('.temperature')
 const weather = document.querySelector('.weather')
 const windValue = document.querySelector('.wind')
@@ -133,7 +134,7 @@ function geoFindMe() {
 		})
 	}
 }
-document.querySelector('#find-me').addEventListener('click', geoFindMe)
+// document.querySelectorAll('.find-me').addEventListener('click', geoFindMe)
 
 const showApp = () => {
 	panel.classList.add('translate-right')
@@ -177,5 +178,7 @@ backBtn.addEventListener('click', () => {
 	setTimeout(showPanel, 50)
 })
 inputCity.addEventListener('keyup', enterCheck)
-
+localizationBtn.forEach(el => {
+	el.addEventListener('click', geoFindMe)
+})
 settingsClose.addEventListener('click', closeSettings)
