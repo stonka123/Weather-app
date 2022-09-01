@@ -94,6 +94,10 @@ const getWeather = (lang = API_LANG) => {
 }
 
 function geoFindMe() {
+	var ua = navigator.userAgent.toLowerCase(),
+		isAndroid = ua.indexOf('android') > -1,
+		geoTimeout = isAndroid ? '15000' : '1000'
+
 	const status = document.querySelector('#status')
 	const mapLink = document.querySelector('#map-link')
 
@@ -133,10 +137,10 @@ function geoFindMe() {
 		status.textContent = 'Geolocation is not supported by your browser'
 	} else {
 		cityName.textContent = 'Locating…'
-		navigator.geolocation.watchPosition(success, error, {
-			enableHighAccuracy: false,
+		navigator.geolocation.getCurrentPosition(success, error, {
+			enableHighAccuracy: true,
 			maximumAge: 100,
-			timeout: 60000,
+			timeout: geoTimeout,
 		})
 	}
 }
