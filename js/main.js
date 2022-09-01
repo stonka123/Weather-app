@@ -105,21 +105,26 @@ function geoFindMe() {
 
 		status.textContent = ''
 
-		mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
-		mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`
+		// mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
+		// mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`
 
-		console.log(
-			`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
-		)
+		// console.log(
+		// 	`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
+		// )
 		axios
 			.get(
 				`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
 			)
 			.then(res => {
+				console.log(
+					`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
+				)
 				const localizationCity = res.data.address.city
 				cityName.textContent = localizationCity
 				inputCity.value = localizationCity
-				mapLink.textContent = `${localizationCity}`
+				mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
+				mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} ° miasto : ${localizationCity}`
+
 				getWeather()
 			})
 			.catch(() => {
