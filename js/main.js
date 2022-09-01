@@ -94,23 +94,13 @@ const getWeather = (lang = API_LANG) => {
 }
 
 function geoFindMe() {
-	const status = document.querySelector('#status')
-	const mapLink = document.querySelector('#map-link')
-
-	mapLink.textContent = ''
-
 	function success(position) {
 		const latitude = position.coords.latitude
 		const longitude = position.coords.longitude
 
-		status.textContent = ''
-
-		// mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
-		// mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`
-
-		// console.log(
-		// 	`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
-		// )
+		console.log(
+			`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
+		)
 		axios
 			.get(
 				`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
@@ -120,23 +110,21 @@ function geoFindMe() {
 					`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
 				)
 				const localizationCity = res.data.address.city
-				cityName.textContent = localizationCity
 				inputCity.value = localizationCity
-				mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
-				mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} ° miasto : ${localizationCity}`
+				cityName.textContent = localizationCity
 
 				getWeather()
 			})
-			.catch(() => {
+			.catch(err => {
 				console.log(err)
 			})
 	}
 	function error() {
-		status.textContent = 'Unable to retrieve your location'
+		alert('Unable to retrieve your location')
 	}
 
 	if (!navigator.geolocation) {
-		const status = 'Geolocation is not supported by your browser'
+		alert('Geolocation is not supported by your browser')
 	} else {
 		cityName.textContent = 'Locating…'
 		navigator.geolocation.getCurrentPosition(success, error, {
