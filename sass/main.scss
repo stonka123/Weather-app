@@ -84,16 +84,17 @@ body {
 			}
 		}
 		&-input {
+			background-color: transparent;
 			border: none;
-			padding: 0.5em 1em;
+			padding: 0.3em;
 			width: 80%;
-			max-width: 500px;
+			max-width: 200px;
 			height: 50px;
-			border-radius: 10px;
-			color: #04a4ff;
-			font-size: 1.5rem;
+			color: #01253a;
+			font-size: 1.2rem;
 			outline: none;
-			border: 1px solid rgb(212, 212, 212);
+			position: relative;
+			border-bottom: 2px solid #2e5a8b;
 		}
 		&-error {
 			color: rgb(253, 55, 55);
@@ -101,15 +102,18 @@ body {
 			// visibility: hidden;
 		}
 		&-btn {
-			padding: 1em 2em;
-			width: 80%;
+			font-size: 1.2rem;
+			padding: 0.5em 1em;
+			margin-top: 2em;
 			max-width: 500px;
 			color: #10699c;
 			border-radius: 10px;
 			border: none;
 			cursor: pointer;
 			transition: background-color 0.4s, color 0.4s;
-
+			width: 200px;
+			max-width: 200px;
+			color: #01253a;
 			&:hover {
 				background-color: #c5c5c5;
 				color: #04a4ff;
@@ -164,7 +168,8 @@ body {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: 25%;
+			width: 20%;
+			max-width: 150px;
 		}
 		&-value {
 			display: flex;
@@ -331,21 +336,28 @@ body {
 .container-input {
 	display: flex;
 	align-items: center;
+	flex-direction: column;
 	justify-content: space-between;
 
 	width: 80%;
 	max-width: 500px;
 }
 .localization-panel {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background: #fff;
 	border-radius: 8px;
-	height: 50px;
-	width: 15%;
-	color: #04a4ff;
+	width: 200px;
+	max-width: 200px;
+	color: #01253a;
 	transition: background-color 0.4s, color 0.4s;
 	&:hover {
 		background-color: #c5c5c5;
 		color: #04a4ff;
+	}
+	&-icon {
+		margin-right: 1em;
 	}
 }
 // ANIMATION
@@ -404,6 +416,18 @@ body {
 			&-img {
 				width: 20%;
 			}
+			&-container {
+				&-description {
+					font-size: 1.5rem;
+				}
+				&-text {
+					font-size: 1.3rem;
+					&--feel,
+					&--max {
+						font-size: 1.5rem;
+					}
+				}
+			}
 		}
 		&__bottom {
 			justify-content: center;
@@ -412,11 +436,12 @@ body {
 			&-section {
 				padding: 0.3em 1.5em;
 				margin: 0.4em 2em;
+				font-size: 1.2rem;
 			}
 		}
 		&__footer {
 			&-back {
-				font-size: 1.3rem;
+				font-size: 1rem;
 			}
 		}
 	}

@@ -25,12 +25,15 @@
                     <h1 class="panel__wrapper-header__text">Weather App</h1>
                 </div>
                 <div class="container-input">
-                    <input type="text" class="panel__wrapper-input" placeholder="Szukaj miasta....">
-                    <button id="find-me" class="app__top-icon icons-ux localization-btn localization-panel find-mee"><i
-                            class="fas fa-map-marker-alt"></i></button>
+                    <input type="text" class="panel__wrapper-input" placeholder="Enter the city">
+                    <p class="panel__wrapper-error"></p>
+                    <button class="panel__wrapper-btn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+
                 </div>
-                <p class="panel__wrapper-error"></p>
-                <button class="panel__wrapper-btn">Szukaj</button>
+
+                <button id="find-me" class="app__top-icon icons-ux localization-btn localization-panel find-mee"><i
+                        class="fas fa-map-marker-alt localization-panel-icon"></i>Find me</button>
+                <!-- <button class="panel__wrapper-btn">Szukaj</button> -->
             </div>
         </div>
         <div class="app">
@@ -48,8 +51,11 @@
                 <div class="app__mid-value temperature ">15 ℃</div>
                 <div class="app__mid-container">
                     <p class="app__mid-container-description">zachmurzone</p>
-                    <p class="app__mid-container-text">feel <span class="app__mid-container-text--feel">15 ℃</span> /
-                        max <span class="app__mid-container-text--max">20 ℃</span>
+                    <p class="app__mid-container-text">feel
+                        <span class="app__mid-container-text--feel">15 ℃</span>
+                        /
+                        max
+                        <span class="app__mid-container-text--max">20 ℃</span>
                     </p>
                 </div>
             </div>

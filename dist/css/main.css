@@ -118,16 +118,17 @@ body {
 }
 
 .panel__wrapper-input {
+  background-color: transparent;
   border: none;
-  padding: 0.5em 1em;
+  padding: 0.3em;
   width: 80%;
-  max-width: 500px;
+  max-width: 200px;
   height: 50px;
-  border-radius: 10px;
-  color: #04a4ff;
-  font-size: 1.5rem;
+  color: #01253a;
+  font-size: 1.2rem;
   outline: none;
-  border: 1px solid #d4d4d4;
+  position: relative;
+  border-bottom: 2px solid #2e5a8b;
 }
 
 .panel__wrapper-error {
@@ -136,8 +137,9 @@ body {
 }
 
 .panel__wrapper-btn {
-  padding: 1em 2em;
-  width: 80%;
+  font-size: 1.2rem;
+  padding: 0.5em 1em;
+  margin-top: 2em;
   max-width: 500px;
   color: #10699c;
   border-radius: 10px;
@@ -145,6 +147,9 @@ body {
   cursor: pointer;
   -webkit-transition: background-color 0.4s, color 0.4s;
   transition: background-color 0.4s, color 0.4s;
+  width: 200px;
+  max-width: 200px;
+  color: #01253a;
 }
 
 .panel__wrapper-btn:hover {
@@ -223,7 +228,8 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 25%;
+  width: 20%;
+  max-width: 150px;
 }
 
 .app__mid-value {
@@ -454,6 +460,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -462,11 +472,20 @@ body {
 }
 
 .localization-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background: #fff;
   border-radius: 8px;
-  height: 50px;
-  width: 15%;
-  color: #04a4ff;
+  width: 200px;
+  max-width: 200px;
+  color: #01253a;
   -webkit-transition: background-color 0.4s, color 0.4s;
   transition: background-color 0.4s, color 0.4s;
 }
@@ -474,6 +493,10 @@ body {
 .localization-panel:hover {
   background-color: #c5c5c5;
   color: #04a4ff;
+}
+
+.localization-panel-icon {
+  margin-right: 1em;
 }
 
 .rotate-center {
@@ -586,6 +609,15 @@ body {
   .app__mid-img {
     width: 20%;
   }
+  .app__mid-container-description {
+    font-size: 1.5rem;
+  }
+  .app__mid-container-text {
+    font-size: 1.3rem;
+  }
+  .app__mid-container-text--feel, .app__mid-container-text--max {
+    font-size: 1.5rem;
+  }
   .app__bottom {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -596,9 +628,10 @@ body {
   .app__bottom-section {
     padding: 0.3em 1.5em;
     margin: 0.4em 2em;
+    font-size: 1.2rem;
   }
   .app__footer-back {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
   .icons-ux {
     font-size: 1.6rem;
