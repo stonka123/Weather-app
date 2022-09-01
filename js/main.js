@@ -94,10 +94,6 @@ const getWeather = (lang = API_LANG) => {
 }
 
 function geoFindMe() {
-	var ua = navigator.userAgent.toLowerCase(),
-		isAndroid = ua.indexOf('android') > -1,
-		geoTimeout = isAndroid ? '15000' : '1000'
-
 	const status = document.querySelector('#status')
 	const mapLink = document.querySelector('#map-link')
 
@@ -126,7 +122,7 @@ function geoFindMe() {
 				getWeather()
 			})
 			.catch(() => {
-				console.log('error!')
+				console.log(err)
 			})
 	}
 	function error() {
@@ -139,8 +135,7 @@ function geoFindMe() {
 		cityName.textContent = 'Locating…'
 		navigator.geolocation.getCurrentPosition(success, error, {
 			enableHighAccuracy: true,
-			maximumAge: 100,
-			timeout: geoTimeout,
+			maximumAge: 10000,
 		})
 	}
 }
@@ -156,7 +151,7 @@ const showPanel = () => {
 	panel.classList.remove('translate-right')
 	appMain.classList.remove('show')
 
-	inputCity.value = cityName.textContent
+	// inputCity.value = cityName.textContent
 }
 const enterCheck = e => {
 	if (e.key === 'Enter') {
