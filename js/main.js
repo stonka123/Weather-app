@@ -133,9 +133,10 @@ function geoFindMe() {
 		status.textContent = 'Geolocation is not supported by your browser'
 	} else {
 		cityName.textContent = 'Locating…'
-		navigator.geolocation.getCurrentPosition(success, error, {
+		navigator.geolocation.watchPosition(success, error, {
 			enableHighAccuracy: false,
-			maximumAge: 10000,
+			maximumAge: 100,
+			timeout: 60000,
 		})
 	}
 }
