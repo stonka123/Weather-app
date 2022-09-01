@@ -247,11 +247,6 @@ body {
   }
 }
 
-#status,
-#map-link {
-  display: none;
-}
-
 .app {
   overflow: hidden;
   position: relative;

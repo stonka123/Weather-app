@@ -118,7 +118,6 @@ function geoFindMe() {
 				const localizationCity = res.data.address.city
 				cityName.textContent = localizationCity
 				inputCity.value = localizationCity
-
 				getWeather()
 			})
 			.catch(() => {
@@ -131,7 +130,6 @@ function geoFindMe() {
 
 	if (!navigator.geolocation) {
 		const status = 'Geolocation is not supported by your browser'
-		alert(status)
 	} else {
 		cityName.textContent = 'Locating…'
 		navigator.geolocation.getCurrentPosition(success, error, {
