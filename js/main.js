@@ -107,6 +107,7 @@ function geoFindMe() {
 
 		mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`
 		mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`
+
 		console.log(
 			`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
 		)
@@ -118,6 +119,7 @@ function geoFindMe() {
 				const localizationCity = res.data.address.city
 				cityName.textContent = localizationCity
 				inputCity.value = localizationCity
+				mapLink.textContent = `${localizationCity}`
 				getWeather()
 			})
 			.catch(() => {
