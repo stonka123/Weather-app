@@ -110,11 +110,43 @@ function geoFindMe() {
 				console.log(
 					`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
 				)
-				const localizationCity = res.data.address.city
-				inputCity.value = localizationCity
-				cityName.textContent = localizationCity
-
-				getWeather()
+				
+			const villageSearch = res.data.address.village
+				const citySearch = res.data.address.city
+				const townSearch = res.data.address.town
+				const hamletSearch = res.data.address.hamlet
+				 const suburbSearch = res.data.address.suburb
+					if(villageSearch){
+						inputCity.value = villageSearch
+						cityName.textContent = villageSearch
+						getWeather()
+					} else if(citySearch){
+						inputCity.value = citySearch
+						cityName.textContent = citySearch
+						getWeather()
+					} else if(townSearch){
+						inputCity.value = townSearch
+						cityName.textContent = townSearch
+						getWeather()
+					} else if(hamletSearch){
+						inputCity.value = hamletSearch
+						cityName.textContent = hamletSearch
+						getWeather()
+					} else if(suburbSearch){
+						inputCity.value = suburbSearch
+						cityName.textContent = suburbSearch
+						getWeather()
+					} else {
+						alert('Enter a nearby town manually')
+					}
+				console.log(res.data.address)
+			
+			
+			
+				//const localizationCity = res.data.address.city
+				//inputCity.value = localizationCity
+				//cityName.textContent = localizationCity
+				//getWeather()
 			})
 			.catch(err => {
 				console.log(err)
