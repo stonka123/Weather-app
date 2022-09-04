@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="dist/css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/2c8b96ae6c.js" crossorigin="anonymous"></script>
 </head>
 
@@ -23,17 +24,20 @@
             <div class="panel__wrapper">
                 <div class="panel__wrapper-header">
                     <img src="./img/mobile-phone.png" alt="" class="panel__wrapper-header__img jello-horizontal">
-                    <h1 class="panel__wrapper-header__text">Weather App</h1>
+                    <h1 data-i18n="panel.header" class="panel__wrapper-header__text">Weather App</h1>
                 </div>
                 <div class="container-input">
-                    <input type="text" class="panel__wrapper-input" placeholder="Enter the city">
-                    <p class="panel__wrapper-error"></p>
+                    <input type="text" class="panel__wrapper-input" data-i18n="panel.placeholder"
+                        placeholder="Enter the city">
+                    <p data-i18n="panel.error" class="panel__wrapper-error"></p>
                     <button class="panel__wrapper-btn"><i
-                            class="fa-solid fa-magnifying-glass panel__wrapper-btn-icon"></i> Search</button>
+                            class="fa-solid fa-magnifying-glass panel__wrapper-btn-icon"></i> <span
+                            data-i18n="panel.searchBtn"></span></button>
 
                 </div>
                 <button id="find-me" class="localization-btn localization-panel find-mee find-main"><i
-                        class="fas fa-map-marker-alt localization-panel-icon"></i>Find me</button>
+                        class="fas fa-map-marker-alt localization-panel-icon"></i><span
+                        data-i18n="panel.localizeBtn"></span></button>
 
             </div>
         </div>
@@ -42,8 +46,7 @@
             <div class="app__top">
                 <button id="find-me" class="app__top-icon icons-ux localization-btn find-mee"><i
                         class="fas fa-map-marker-alt"></i></button>
-                <!-- <p id="status"></p>
-                <a id="map-link" target="_blank"></a> -->
+
                 <p class="app__top-city">Lion</p>
                 <button class="app__top-icon icons-ux settings-btn"><i class="fas fa-cog"></i></button>
             </div>
@@ -64,14 +67,14 @@
                 <div class="app__bottom-section">
                     <div class="app__bottom-section-option">
                         <img src="img/eclipse(1).png" alt="" srcset="" class="app__bottom-section-option-icon">
-                        <p class="app__bottom-info-option">weather: </p>
+                        <p data-i18n="app.weather" class="app__bottom-info-option">weather: </p>
                     </div>
                     <p class="app__bottom-section-value weather"></p>
                 </div>
                 <div class="app__bottom-section">
                     <div class="app__bottom-section-option">
                         <img src="img/tornado.png" alt="" srcset="" class="app__bottom-section-option-icon">
-                        <p class="app__bottom-info-option">wind: </p>
+                        <p data-i18n="app.wind" class="app__bottom-info-option">wind: </p>
                     </div>
                     <p class="app__bottom-section-value wind">25</p>
                 </div>
@@ -79,34 +82,37 @@
                 <div class="app__bottom-section">
                     <div class="app__bottom-section-option">
                         <img src="img/weather-app.png" alt="" srcset="" class="app__bottom-section-option-icon">
-                        <p class="app__bottom-info-option">humidity: </p>
+                        <p data-i18n="app.humidity" class="app__bottom-info-option">humidity: </p>
                     </div>
                     <p class="app__bottom-section-value humidity">85%</p>
                 </div>
                 <div class="app__bottom-section">
                     <div class="app__bottom-section-option">
                         <img src="img/rainbow.png" alt="" srcset="" class="app__bottom-section-option-icon">
-                        <p class="app__bottom-info-option">pressure: </p>
+                        <p data-i18n="app.pressure" class="app__bottom-info-option">pressure: </p>
                     </div>
                     <p class="app__bottom-section-value pressure">85%</p>
                 </div>
 
             </div>
             <div class="app__footer">
-                <button class="app__footer-back"><i class="fas fa-long-arrow-alt-left"></i> back</button>
+                <button class="app__footer-back"><i class="fas fa-long-arrow-alt-left"></i>
+                    <span data-i18n="app.back"></span></button>
             </div>
         </div>
     </div>
     <div class="settings">
         <p class="settings__header">Settings</p>
         <div class="settings__container">
+            <!-- <select name="language" id="languageSwitcher"></select> -->
             <p class="settings__container-header">
                 <i class="fa-solid fa-globe settings__container-header-icon"></i>Language
             </p>
-            <label class="settings__container-label"><input class="settings__container-header-input pl-input"
-                    name="language" type="radio" value="eng" checked>ENG</label>
-            <label class="settings__container-label"><input class="settings__container-header-input pl-input"
-                    name="language" type="radio" value="pl">PL</label>
+            <label class="settings__container-label languageSwitcher"><input
+                    class="settings__container-header-input pl-input" name="language" type="radio" value="eng"
+                    checked>ENG</label>
+            <label class="settings__container-label languageSwitcher"><input
+                    class="settings__container-header-input pl-input" name="language" type="radio" value="pl">PL</label>
         </div>
         <div class="settings__container">
             <p class="settings__container-header">
@@ -123,7 +129,11 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/thealphadollar/vanilla-i18n/src/vanilla-i18n.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next@21.6.10/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/jquery-i18next.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@6.1.3/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="./js/i18n.js"></script>
     <script src="js/main.js"></script>
 
 </body>

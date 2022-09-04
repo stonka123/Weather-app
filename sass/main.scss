@@ -17,6 +17,9 @@ body {
 	background-size: cover;
 	background-position: center;
 }
+option {
+	display: none;
+}
 .shadow {
 	position: absolute;
 	top: 0;
@@ -106,7 +109,10 @@ body {
 			margin-top: 1em;
 			color: rgb(253, 55, 55);
 			font-size: 1rem;
-			// visibility: hidden;
+			visibility: hidden;
+			&--show {
+				visibility: visible;
+			}
 		}
 		&-btn {
 			display: flex;
@@ -156,7 +162,8 @@ body {
 }
 .find-main {
 	background-color: $darkblue;
-	color: $white;}
+	color: $white;
+}
 .app {
 	overflow: hidden;
 	position: relative;

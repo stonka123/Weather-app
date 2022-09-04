@@ -46,6 +46,7 @@ const getWeather = (lang = API_LANG) => {
 	axios
 		.get(URL)
 		.then(res => {
+			warning.classList.remove('panel__wrapper-error--show')
 			console.log(URL)
 			console.log(res.data.weather[0].main)
 			warning.textContent = ''
@@ -91,7 +92,7 @@ const getWeather = (lang = API_LANG) => {
 			}
 		})
 		.catch(() => {
-			warning.textContent = 'Please enter a valid city name'
+			warning.classList.add('panel__wrapper-error--show')
 		})
 }
 function geoFindMe() {
@@ -125,6 +126,8 @@ function geoFindMe() {
 				// 		inputCity.value = value
 				// 		cityName.textContent = value
 				// 		getWeather()
+				// 	} else {
+				// 		alert('Enter a nearby town manually')
 				// 	}
 				// }
 
@@ -155,6 +158,7 @@ function geoFindMe() {
 			})
 			.catch(err => {
 				console.log(err)
+				
 			})
 	}
 	function error() {
