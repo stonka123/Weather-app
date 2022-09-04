@@ -117,7 +117,17 @@ function geoFindMe() {
 				const hamletSearch = res.data.address.hamlet
 				const suburbSearch = res.data.address.suburb
 
-				
+				// tab = [villageSearch, citySearch, townSearch, hamletSearch, suburbSearch]
+				// const searchCity = tab.values()
+
+				// for (const value of searchCity) {
+				// 	if (value) {
+				// 		inputCity.value = value
+				// 		cityName.textContent = value
+				// 		getWeather()
+				// 	}
+				// }
+
 				if (villageSearch) {
 					inputCity.value = villageSearch
 					cityName.textContent = villageSearch
