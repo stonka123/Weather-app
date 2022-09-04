@@ -1,3 +1,5 @@
+@import './colors';
+
 *,
 *::after,
 *::before {
@@ -8,7 +10,7 @@
 
 body {
 	font-size: 62.5%;
-	color: #fff;
+	color: $white;
 	font-family: 'Montserrat', sans-serif;
 
 	background-image: url('../../img/body_bgc.jpg');
@@ -80,7 +82,7 @@ body {
 			}
 			&__text {
 				font-size: 1.7rem;
-				color: #04a4ff;
+				color: $lightblue;
 			}
 		}
 		&-input {
@@ -90,7 +92,7 @@ body {
 			width: 80%;
 			max-width: 200px;
 			height: 50px;
-			color: #01253a;
+			color: $darkblue;
 			font-size: 1.2rem;
 			outline: none;
 			position: relative;
@@ -113,16 +115,15 @@ body {
 			font-size: 1.2rem;
 			padding: 0.5em 1em;
 			margin-top: 2em;
-			color: #10699c;
 			border-radius: 30px;
 			border: none;
 			cursor: pointer;
 			transition: background-color 0.4s, color 0.4s;
 			width: 200px;
-			color: #01253a;
+			color: $darkblue;
 			&:hover {
 				background-color: #c5c5c5;
-				color: #04a4ff;
+				color: $lightblue;
 			}
 			&-icon {
 				margin-right: 1em;
@@ -130,28 +131,32 @@ body {
 		}
 	}
 }
-.localization-panel {
+.localization-panel,
+.find-main {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-size: 1.2rem;
 	padding: 0.5em 1em;
 	margin-top: 2em;
-	color: #10699c;
+	color: $blue;
 	border-radius: 30px;
 	border: none;
 	cursor: pointer;
 	transition: background-color 0.4s, color 0.4s;
 	width: 200px;
-	color: #01253a;
+	color: $darkblue;
 	&:hover {
 		background-color: #c5c5c5;
-		color: #04a4ff;
+		color: $lightblue;
 	}
 	&-icon {
 		margin-right: 1em;
 	}
 }
+.find-main {
+	background-color: $darkblue;
+	color: $white;}
 .app {
 	overflow: hidden;
 	position: relative;
@@ -172,7 +177,7 @@ body {
 		font-size: 1.2rem;
 		height: 10%;
 		&-icon {
-			color: #fff;
+			color: $white;
 			background: none;
 			border: none;
 			padding: 0.4em 0.2em;
@@ -228,7 +233,7 @@ body {
 				&--max,
 				&--feel {
 					font-size: 0.9rem;
-					color: #fff;
+					color: $white;
 				}
 			}
 		}
@@ -325,7 +330,7 @@ body {
 	}
 	&__close {
 		width: 70%;
-		background-color: #10699c;
+		background-color: $blue;
 		border: none;
 		padding: 0.5em 1em;
 		border-radius: 8px;
@@ -333,7 +338,7 @@ body {
 		transition: background-color 0.3s;
 		cursor: pointer;
 		&:hover {
-			background-color: #10699c;
+			background-color: $blue;
 		}
 	}
 }

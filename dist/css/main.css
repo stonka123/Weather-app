@@ -166,7 +166,6 @@ body {
   font-size: 1.2rem;
   padding: 0.5em 1em;
   margin-top: 2em;
-  color: #10699c;
   border-radius: 30px;
   border: none;
   cursor: pointer;
@@ -185,7 +184,8 @@ body {
   margin-right: 1em;
 }
 
-.localization-panel {
+.localization-panel,
+.find-main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -208,13 +208,20 @@ body {
   color: #01253a;
 }
 
-.localization-panel:hover {
+.localization-panel:hover,
+.find-main:hover {
   background-color: #c5c5c5;
   color: #04a4ff;
 }
 
-.localization-panel-icon {
+.localization-panel-icon,
+.find-main-icon {
   margin-right: 1em;
+}
+
+.find-main {
+  background-color: #01253a;
+  color: #fff;
 }
 
 .app {
