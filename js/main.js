@@ -5,7 +5,7 @@ const cityName = document.querySelector('.app__top-city')
 const appMain = document.querySelector('.app')
 const photo = document.querySelector('.app__mid-img')
 const inputCity = document.querySelector('.panel__wrapper-input')
-// const localizationBtn = document.querySelector('.localization-btn')
+
 const localizationBtn = document.querySelectorAll('.find-mee')
 const temperature = document.querySelector('.temperature')
 const weather = document.querySelector('.weather')
@@ -39,6 +39,14 @@ const getUrl = (city, lang) => {
 	return basicUrl + API_LANG
 }
 
+const changelang = basicUrl => {
+	const langStorage = localStorage.getItem('lol')
+	if (langStorage === 'pl') {
+		return basicUrl + API_LANG_PL
+	}
+	return basicUrl + API_LANG
+}
+changelang()
 const getWeather = (lang = API_LANG) => {
 	let city = inputCity.value
 	const URL = getUrl(city, lang)
@@ -46,9 +54,6 @@ const getWeather = (lang = API_LANG) => {
 	axios
 		.get(URL)
 		.then(res => {
-			warning.classList.remove('panel__wrapper-error--show')
-			console.log(URL)
-			console.log(res.data.weather[0].main)
 			warning.textContent = ''
 			const weath = res.data.weather[0].main
 			const desc = res.data.weather[0].description
@@ -63,7 +68,7 @@ const getWeather = (lang = API_LANG) => {
 			let unicodeDegCel = '℃'
 			let unicodeMetSec = '㎧'
 			cityName.textContent = res.data.name
-			weather.textContent = weath
+			// weather.textContent = desc
 			temperature.textContent = Math.round(temp) + ' ' + unicodeDegCel
 			feelValue.textContent = feel.toFixed(0) + '' + unicodeDegCel
 			maxTempValue.textContent = maxTemp.toFixed(0) + '' + unicodeDegCel
@@ -75,23 +80,29 @@ const getWeather = (lang = API_LANG) => {
 
 			if (statusCode >= 200 && statusCode <= 232) {
 				photo.setAttribute('src', './img/thunderstorm.png')
+				weather.textContent = 'Burza'
 			} else if (statusCode >= 300 && statusCode <= 532) {
 				photo.setAttribute('src', './img/rainy.png')
+				weather.textContent = 'Deszcz'
 			} else if (statusCode >= 600 && statusCode <= 622) {
 				photo.setAttribute('src', './img/snow.png')
+				weather.textContent = 'Śnieg'
 			} else if (statusCode >= 700 && statusCode <= 771) {
 				photo.setAttribute('src', './img/weather-alert.png')
-			} else if (statusCode >= 700 && statusCode <= 771) {
-				photo.setAttribute('src', './img/weather-alert.png')
+				weather.textContent = 'Niebezpiecznie'
 			} else if (statusCode === 781) {
 				photo.setAttribute('src', './img/tornado.png')
+				weather.textContent = 'Silny wiatr'
 			} else if (statusCode === 800) {
 				photo.setAttribute('src', './img/sun.png')
+				weather.textContent = 'Słonecznie'
 			} else if (statusCode >= 801 && statusCode <= 804) {
 				photo.setAttribute('src', './img/cloudy-day.png')
+				weather.textContent = 'Zachmurzenie'
 			}
 		})
-		.catch(() => {
+		.catch(function () {
+			checkInputValue()
 			warning.classList.add('panel__wrapper-error--show')
 		})
 }
@@ -99,66 +110,61 @@ function geoFindMe() {
 	function success(position) {
 		const latitude = position.coords.latitude
 		const longitude = position.coords.longitude
-
-		console.log(
-			`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
-		)
+		const API_LAT_LONG = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
 		axios
-			.get(
-				`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
-			)
+			.get(API_LAT_LONG)
 			.then(res => {
-				console.log(
-					`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
-				)
-
 				const villageSearch = res.data.address.village
 				const citySearch = res.data.address.city
 				const townSearch = res.data.address.town
 				const hamletSearch = res.data.address.hamlet
 				const suburbSearch = res.data.address.suburb
 
-				// tab = [villageSearch, citySearch, townSearch, hamletSearch, suburbSearch]
-				// const searchCity = tab.values()
+				tab = [citySearch, townSearch, villageSearch, hamletSearch, suburbSearch]
+				const found = tab.find(el => el != '')
+				inputCity.value = found
+				cityName.textContent = found
+				getWeather()
 
+				// const searchCity = tab.values()
 				// for (const value of searchCity) {
 				// 	if (value) {
 				// 		inputCity.value = value
 				// 		cityName.textContent = value
 				// 		getWeather()
 				// 	} else {
-				// 		alert('Enter a nearby town manually')
+				// 		console.log(`Nie znalazło ${value}`)
+				// 		// alert('Enter a nearby town manually')
 				// 	}
 				// }
 
-				if (villageSearch) {
-					inputCity.value = villageSearch
-					cityName.textContent = villageSearch
-					getWeather()
-				} else if (citySearch) {
-					inputCity.value = citySearch
-					cityName.textContent = citySearch
-					getWeather()
-				} else if (townSearch) {
-					inputCity.value = townSearch
-					cityName.textContent = townSearch
-					getWeather()
-				} else if (hamletSearch) {
-					inputCity.value = hamletSearch
-					cityName.textContent = hamletSearch
-					getWeather()
-				} else if (suburbSearch) {
-					inputCity.value = suburbSearch
-					cityName.textContent = suburbSearch
-					getWeather()
-				} else {
-					alert('Enter a nearby town manually')
-				}
-				console.log(res.data.address)
+				// if (villageSearch) {
+				// 	inputCity.value = villageSearch
+				// 	cityName.textContent = villageSerch
+				// 	getWeather()
+				// } else if (citySearch) {
+				// 	inputCity.value = citySearch
+				// 	cityName.textContent = citySearc
+				// 	getWeather()
+				// } else if (townSearch) {
+				// 	inputCity.value = townSearch
+				// 	cityName.textContent = townSearc
+				// 	getWeather()
+				// } else if (hamletSearch) {
+				// 	inputCity.value = hamletSearch
+				// 	cityName.textContent = hamletSearch
+				// 	getWeather()
+				// } else if (suburbSearch) {
+				// 	inputCity.value = suburbSearch
+				// 	cityName.textContent = suburbSearch
+				// 	getWeather()
+				// } else {
+				// 	alert('Enter a nearby town manually')
+				// }
+				// console.log(res.data.address)
 			})
 			.catch(err => {
 				console.log(err)
-				
 			})
 	}
 	function error() {
@@ -200,6 +206,8 @@ const closeSettings = () => {
 
 plInput.forEach(item => {
 	item.addEventListener('change', () => {
+		localStorage.setItem('lol', item.value)
+		changelang()
 		getWeather(item.value)
 	})
 })
@@ -213,6 +221,12 @@ document.querySelector('.wrapper').addEventListener('click', e => {
 		settingsDashboard.classList.remove('display-flex')
 	}
 })
+
+const checkInputValue = () => {
+	if (!inputCity.value) {
+		warning.classList.add('show')
+	}
+}
 
 searchBtn.addEventListener('click', getWeather)
 backBtn.addEventListener('click', () => {

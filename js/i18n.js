@@ -26,7 +26,6 @@ $(function () {
 					en: {
 						translation: {
 							panel: {
-								header: 'Weather App',
 								searchBtn: 'Search',
 								localizeBtn: 'Find Me',
 								placeholder: 'Enter the city',
@@ -38,13 +37,19 @@ $(function () {
 								humidity: 'humidity:',
 								pressure: 'pressure:',
 								back: 'back',
+								feel: 'feel',
+							},
+							settings: {
+								header: 'Settings',
+								language: 'Language',
+								units: 'Units of measurement',
+								btn: 'Close',
 							},
 						},
 					},
 					pl: {
 						translation: {
 							panel: {
-								header: 'Aplikacja Pogodowa',
 								searchBtn: 'Szukaj',
 								localizeBtn: 'Znajdź mnie',
 								placeholder: 'Wprowadź miasto',
@@ -56,6 +61,13 @@ $(function () {
 								humidity: 'wilogtość:',
 								pressure: 'ciśnienie:',
 								back: 'wróć',
+								feel: 'odcz.',
+							},
+							settings: {
+								header: 'Ustawienia',
+								language: 'Język',
+								units: 'Jednostki miary',
+								btn: 'Zamknij',
 							},
 						},
 					},

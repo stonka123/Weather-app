@@ -24,7 +24,7 @@
             <div class="panel__wrapper">
                 <div class="panel__wrapper-header">
                     <img src="./img/mobile-phone.png" alt="" class="panel__wrapper-header__img jello-horizontal">
-                    <h1 data-i18n="panel.header" class="panel__wrapper-header__text">Weather App</h1>
+                    <h1 class="panel__wrapper-header__text">Weather App</h1>
                 </div>
                 <div class="container-input">
                     <input type="text" class="panel__wrapper-input" data-i18n="panel.placeholder"
@@ -55,7 +55,9 @@
                 <div class="app__mid-value temperature ">15 ℃</div>
                 <div class="app__mid-container">
                     <p class="app__mid-container-description">zachmurzone</p>
-                    <p class="app__mid-container-text">feel
+                    <p class="app__mid-container-text">
+                        <span data-i18n="app.feel">feel</span>
+
                         <span class="app__mid-container-text--feel">15 ℃</span>
                         /
                         max
@@ -102,28 +104,31 @@
         </div>
     </div>
     <div class="settings">
-        <p class="settings__header">Settings</p>
+        <p class="settings__header" data-i18n="settings.header">Settings</p>
         <div class="settings__container">
             <!-- <select name="language" id="languageSwitcher"></select> -->
             <p class="settings__container-header">
-                <i class="fa-solid fa-globe settings__container-header-icon"></i>Language
+                <i class="fa-solid fa-globe settings__container-header-icon"></i> <span
+                    data-i18n="settings.language">Language</span>
             </p>
             <label class="settings__container-label languageSwitcher"><input
-                    class="settings__container-header-input pl-input" name="language" type="radio" value="eng"
-                    checked>ENG</label>
+                    class="settings__container-header-input pl-input" name="language" type="radio"
+                    value="eng">ENG</label>
             <label class="settings__container-label languageSwitcher"><input
                     class="settings__container-header-input pl-input" name="language" type="radio" value="pl">PL</label>
         </div>
         <div class="settings__container">
             <p class="settings__container-header">
-                <i class="fa-solid fa-rotate settings__container-header-icon"></i>Units of measurement
+                <i class="fa-solid fa-rotate settings__container-header-icon"></i><span data-i18n="settings.units">Units
+                    of measurement</span>
             </p>
-            <label class="settings__container-label"><input class="settings__container-header-input" name="measurement"
-                    type="radio" value="metric" checked>Metric</label>
+            <label " class=" settings__container-label">
+                <input class="settings__container-header-input" name="measurement" type="radio" value="metric"
+                    checked>Metric</label>
             <label class="settings__container-label"><input class="settings__container-header-input" name="measurement"
                     type="radio" value="imperial">Imperial</label>
         </div>
-        <button class="settings__close">Close</button>
+        <button class="settings__close" data-i18n="settings.btn">Close</button>
     </div>
 
 

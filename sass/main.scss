@@ -91,12 +91,12 @@ option {
 		&-input {
 			background-color: transparent;
 			border: none;
-			padding: 0.3em;
+			padding: 0.2rem 0.3em;
 			width: 80%;
 			max-width: 200px;
-			height: 50px;
+			font-size: 1.4rem;
 			color: $darkblue;
-			font-size: 1.2rem;
+
 			outline: none;
 			position: relative;
 			border-bottom: 2px solid #2e5a8b;
