@@ -32,9 +32,9 @@ const API_LANG = '&lang=en'
 const API_LANG_PL = '&lang=pl'
 
 const getUrl = city => {
-	const checkLangi = localStorage.getItem('i18nextLng')
+	const checkLang = localStorage.getItem('i18nextLng')
 	let basicUrl = API_LINK + city + API_KEY + API_UNITS
-	if (checkLangi === 'pl') {
+	if (checkLang === 'pl') {
 		return basicUrl + API_LANG_PL
 	}
 	return basicUrl + API_LANG
@@ -102,19 +102,19 @@ const getWeather = (lang = API_LANG) => {
 
 const translateWeather = (weather, statusCode) => {
 	const checkLang = localStorage.getItem('i18nextLng')
-	if (checkLang === 'eng' && statusCode === 800) {
+	if (checkLang === 'en' && statusCode === 800) {
 		weather.textContent = 'Sunny'
-	} else if (checkLang === 'eng' && statusCode >= 200 && statusCode <= 232) {
+	} else if (checkLang === 'en' && statusCode >= 200 && statusCode <= 232) {
 		weather.textContent = 'storm'
-	} else if (checkLang === 'eng' && statusCode >= 300 && statusCode <= 532) {
+	} else if (checkLang === 'en' && statusCode >= 300 && statusCode <= 532) {
 		weather.textContent = 'rain'
-	} else if (checkLang === 'eng' && statusCode >= 600 && statusCode <= 622) {
+	} else if (checkLang === 'en' && statusCode >= 600 && statusCode <= 622) {
 		weather.textContent = 'snow'
-	} else if (checkLang === 'eng' && statusCode >= 700 && statusCode <= 771) {
+	} else if (checkLang === 'en' && statusCode >= 700 && statusCode <= 771) {
 		weather.textContent = 'dangerous'
-	} else if (checkLang === 'eng' && statusCode === 781) {
+	} else if (checkLang === 'en' && statusCode === 781) {
 		weather.textContent = 'strong wind'
-	} else if (checkLang === 'eng' && statusCode >= 801 && statusCode <= 804) {
+	} else if (checkLang === 'en' && statusCode >= 801 && statusCode <= 804) {
 		weather.textContent = 'cloudy'
 	}
 }
