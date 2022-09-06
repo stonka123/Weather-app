@@ -39,14 +39,15 @@ const getUrl = (city, lang) => {
 	return basicUrl + API_LANG
 }
 
-const changelang = basicUrl => {
-	const langStorage = localStorage.getItem('lol')
-	if (langStorage === 'pl') {
-		return basicUrl + API_LANG_PL
-	}
-	return basicUrl + API_LANG
-}
-changelang()
+// const changelang = basicUrl => {
+// 	const langStorage = localStorage.getItem('lol')
+// 	if (langStorage === 'pl') {
+// 		return basicUrl + API_LANG_PL
+// 	}
+// 	return basicUrl + API_LANG
+// }
+// changelang()
+
 const getWeather = (lang = API_LANG) => {
 	let city = inputCity.value
 	const URL = getUrl(city, lang)
@@ -121,7 +122,9 @@ function geoFindMe() {
 				const suburbSearch = res.data.address.suburb
 
 				tab = [citySearch, townSearch, villageSearch, hamletSearch, suburbSearch]
-				const found = tab.find(el => el != '')
+				const found = tab.find(function (el) {
+					return el != undefined
+				})
 				inputCity.value = found
 				cityName.textContent = found
 				getWeather()
@@ -206,8 +209,7 @@ const closeSettings = () => {
 
 plInput.forEach(item => {
 	item.addEventListener('change', () => {
-		localStorage.setItem('lol', item.value)
-		changelang()
+		localStorage.setItem('i18nextLng', item.value)
 		getWeather(item.value)
 	})
 })
