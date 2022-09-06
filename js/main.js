@@ -31,30 +31,21 @@ const API_UNITS = '&units=metric'
 const API_LANG = '&lang=en'
 const API_LANG_PL = '&lang=pl'
 
-const getUrl = (city, lang) => {
+const getUrl = city => {
+	const checkLangi = localStorage.getItem('i18nextLng')
 	let basicUrl = API_LINK + city + API_KEY + API_UNITS
-	if (lang === 'pl') {
+	if (checkLangi === 'pl') {
 		return basicUrl + API_LANG_PL
 	}
 	return basicUrl + API_LANG
 }
-
-// const changelang = basicUrl => {
-// 	const langStorage = localStorage.getItem('lol')
-// 	if (langStorage === 'pl') {
-// 		return basicUrl + API_LANG_PL
-// 	}
-// 	return basicUrl + API_LANG
-// }
-// changelang()
-
 const getWeather = (lang = API_LANG) => {
 	let city = inputCity.value
 	const URL = getUrl(city, lang)
-
 	axios
 		.get(URL)
 		.then(res => {
+			console.log(URL)
 			warning.textContent = ''
 			const weath = res.data.weather[0].main
 			const desc = res.data.weather[0].description
@@ -101,12 +92,33 @@ const getWeather = (lang = API_LANG) => {
 				photo.setAttribute('src', './img/cloudy-day.png')
 				weather.textContent = 'Zachmurzenie'
 			}
+			translateWeather(weather, statusCode)
 		})
 		.catch(function () {
 			checkInputValue()
 			warning.classList.add('panel__wrapper-error--show')
 		})
 }
+
+const translateWeather = (weather, statusCode) => {
+	const checkLang = localStorage.getItem('i18nextLng')
+	if (checkLang === 'eng' && statusCode === 800) {
+		weather.textContent = 'Sunny'
+	} else if (checkLang === 'eng' && statusCode >= 200 && statusCode <= 232) {
+		weather.textContent = 'storm'
+	} else if (checkLang === 'eng' && statusCode >= 300 && statusCode <= 532) {
+		weather.textContent = 'rain'
+	} else if (checkLang === 'eng' && statusCode >= 600 && statusCode <= 622) {
+		weather.textContent = 'snow'
+	} else if (checkLang === 'eng' && statusCode >= 700 && statusCode <= 771) {
+		weather.textContent = 'dangerous'
+	} else if (checkLang === 'eng' && statusCode === 781) {
+		weather.textContent = 'strong wind'
+	} else if (checkLang === 'eng' && statusCode >= 801 && statusCode <= 804) {
+		weather.textContent = 'cloudy'
+	}
+}
+
 function geoFindMe() {
 	function success(position) {
 		const latitude = position.coords.latitude
@@ -128,43 +140,6 @@ function geoFindMe() {
 				inputCity.value = found
 				cityName.textContent = found
 				getWeather()
-
-				// const searchCity = tab.values()
-				// for (const value of searchCity) {
-				// 	if (value) {
-				// 		inputCity.value = value
-				// 		cityName.textContent = value
-				// 		getWeather()
-				// 	} else {
-				// 		console.log(`Nie znalazło ${value}`)
-				// 		// alert('Enter a nearby town manually')
-				// 	}
-				// }
-
-				// if (villageSearch) {
-				// 	inputCity.value = villageSearch
-				// 	cityName.textContent = villageSerch
-				// 	getWeather()
-				// } else if (citySearch) {
-				// 	inputCity.value = citySearch
-				// 	cityName.textContent = citySearc
-				// 	getWeather()
-				// } else if (townSearch) {
-				// 	inputCity.value = townSearch
-				// 	cityName.textContent = townSearc
-				// 	getWeather()
-				// } else if (hamletSearch) {
-				// 	inputCity.value = hamletSearch
-				// 	cityName.textContent = hamletSearch
-				// 	getWeather()
-				// } else if (suburbSearch) {
-				// 	inputCity.value = suburbSearch
-				// 	cityName.textContent = suburbSearch
-				// 	getWeather()
-				// } else {
-				// 	alert('Enter a nearby town manually')
-				// }
-				// console.log(res.data.address)
 			})
 			.catch(err => {
 				console.log(err)
@@ -178,7 +153,6 @@ function geoFindMe() {
 		cityName.textContent = 'Locating…'
 		console.log(navigator.geolocation)
 		navigator.geolocation.getCurrentPosition(success, error, {
-			// enableHighAccuracy: false,
 			maximumAge: 15000,
 		})
 	} else {
@@ -194,8 +168,6 @@ const showApp = () => {
 const showPanel = () => {
 	panel.classList.remove('translate-right')
 	appMain.classList.remove('show')
-
-	// inputCity.value = cityName.textContent
 }
 const enterCheck = e => {
 	if (e.key === 'Enter') {
