@@ -92,7 +92,7 @@ const getWeather = (lang = API_LANG) => {
 				photo.setAttribute('src', './img/cloudy-day.png')
 				weather.textContent = 'Zachmurzenie'
 			}
-			translateWeather(weather, statusCode)
+			translateWeather(weather, statusCode, inputCity)
 		})
 		.catch(function () {
 			checkInputValue()
@@ -102,6 +102,7 @@ const getWeather = (lang = API_LANG) => {
 
 const translateWeather = (weather, statusCode) => {
 	const checkLang = localStorage.getItem('i18nextLng')
+	checkPlaceholderLang(inputCity)
 	if (checkLang === 'en' && statusCode === 800) {
 		weather.textContent = 'Sunny'
 	} else if (checkLang === 'en' && statusCode >= 200 && statusCode <= 232) {
@@ -119,20 +120,21 @@ const translateWeather = (weather, statusCode) => {
 	}
 }
 
+
 function geoFindMe() {
 	function success(position) {
 		const latitude = position.coords.latitude
 		const longitude = position.coords.longitude
 		const API_LAT_LONG = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
 		axios
-			.get(API_LAT_LONG)
-			.then(res => {
-				const villageSearch = res.data.address.village
+		.get(API_LAT_LONG)
+		.then(res => {
+			const villageSearch = res.data.address.village
 				const citySearch = res.data.address.city
 				const townSearch = res.data.address.town
 				const hamletSearch = res.data.address.hamlet
 				const suburbSearch = res.data.address.suburb
-
+				
 				tab = [citySearch, townSearch, villageSearch, hamletSearch, suburbSearch]
 				const found = tab.find(function (el) {
 					return el != undefined
@@ -144,7 +146,7 @@ function geoFindMe() {
 			.catch(err => {
 				console.log(err)
 			})
-	}
+		}
 	function error() {
 		alert('Unable to retrieve your location')
 	}
@@ -160,6 +162,14 @@ function geoFindMe() {
 	}
 }
 
+const checkPlaceholderLang = inputCity => {
+	const checkLang = localStorage.getItem('i18nextLng')
+	if (checkLang === 'pl') {
+		inputCity.placeholder = 'Wpisz miasto'
+	} else {
+		inputCity.placeholder = 'Enter the city'
+	}
+}
 const showApp = () => {
 	panel.classList.add('translate-right')
 	appMain.classList.add('show')
@@ -169,26 +179,14 @@ const showPanel = () => {
 	panel.classList.remove('translate-right')
 	appMain.classList.remove('show')
 }
-const enterCheck = e => {
-	if (e.key === 'Enter') {
-		getWeather()
-	}
-}
 
 const closeSettings = () => {
 	settingsDashboard.classList.remove('display-flex')
 }
 
-plInput.forEach(item => {
-	item.addEventListener('change', () => {
-		localStorage.setItem('i18nextLng', item.value)
-		getWeather(item.value)
-	})
-})
-
 document.querySelector('.wrapper').addEventListener('click', e => {
 	const closestSettingsBtn = e.target.closest('.settings-btn')
-
+	
 	if (closestSettingsBtn) {
 		settingsDashboard.classList.toggle('display-flex')
 	} else if (!closestSettingsBtn && settingsDashboard.classList.contains('display-flex')) {
@@ -202,6 +200,23 @@ const checkInputValue = () => {
 	}
 }
 
+checkPlaceholderLang(inputCity)
+
+
+
+
+
+const enterCheck = e => {
+	if (e.key === 'Enter') {
+		getWeather()
+	}
+}
+plInput.forEach(item => {
+	item.addEventListener('change', () => {
+		localStorage.setItem('i18nextLng', item.value)
+		getWeather(item.value)
+	})
+})
 searchBtn.addEventListener('click', getWeather)
 backBtn.addEventListener('click', () => {
 	setTimeout(showPanel, 50)
