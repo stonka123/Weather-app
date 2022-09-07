@@ -15,7 +15,7 @@ The weather application is intended for users who want to check the weather in t
 
 ## Screenshots
 
-![ScreenShot](https://i.im.ge/2022/09/07/OKfxWG.screen-weather.jpg)
+![image](https://i.im.ge/2022/09/07/OKfxWG.screen-weather.jpg)
 
 
 ## Demo
