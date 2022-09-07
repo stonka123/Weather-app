@@ -1,4 +1,5 @@
 @import './colors';
+@import './animations';
 
 *,
 *::after,
@@ -12,14 +13,11 @@ body {
 	font-size: 62.5%;
 	color: $white;
 	font-family: 'Montserrat', sans-serif;
-
 	background-image: url('../../img/body_bgc.jpg');
 	background-size: cover;
 	background-position: center;
 }
-option {
-	display: none;
-}
+
 .shadow {
 	position: absolute;
 	top: 0;
@@ -383,46 +381,8 @@ option {
 	width: 80%;
 	max-width: 500px;
 }
-
-// ANIMATION
-.rotate-center {
-	animation: rotate-center 30s linear infinite;
-}
-
-.jello-horizontal {
-	animation: jello-horizontal 0.9s both;
-}
-@keyframes rotate-center {
-	0% {
-		transform: rotate(0);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes jello-horizontal {
-	0% {
-		transform: scale3d(1, 1, 1);
-	}
-	30% {
-		transform: scale3d(1.25, 0.75, 1);
-	}
-	40% {
-		transform: scale3d(0.75, 1.25, 1);
-	}
-	50% {
-		transform: scale3d(1.15, 0.85, 1);
-	}
-	65% {
-		transform: scale3d(0.95, 1.05, 1);
-	}
-	75% {
-		transform: scale3d(1.05, 0.95, 1);
-	}
-	100% {
-		transform: scale3d(1, 1, 1);
-	}
+option {
+	display: none;
 }
 
 @media (min-width: 992px) {

@@ -19,11 +19,11 @@
     <!-- ICON <a href="https://www.flaticon.com/free-icons/road-sign" title="road sign icons">Road sign icons created by bukeicon - Flaticon</a> -->
     <div class="wrapper ">
         <div class="panel">
-
-            <img src="./img/sunny_logo.png" class="panel__img rotate-center" alt="">
+            <img src="./img/sunny_logo.png" class="panel__img rotate-center" alt="photo of clouds">
             <div class="panel__wrapper">
                 <div class="panel__wrapper-header">
-                    <img src="./img/mobile-phone.png" alt="" class="panel__wrapper-header__img jello-horizontal">
+                    <img src="./img/mobile-phone.png" alt="logo weather app"
+                        class="panel__wrapper-header__img jello-horizontal">
                     <h1 class="panel__wrapper-header__text">Weather App</h1>
                 </div>
                 <div class="container-input">
@@ -35,7 +35,7 @@
                             data-i18n="panel.searchBtn"></span></button>
 
                 </div>
-                <button id="find-me" class="localization-btn localization-panel find-mee find-main"><i
+                <button id="find-me" class="localization-btn localization-panel"><i
                         class="fas fa-map-marker-alt localization-panel-icon"></i><span
                         data-i18n="panel.localizeBtn"></span></button>
 
@@ -44,14 +44,14 @@
         <div class="app">
             <div class="bgc"></div>
             <div class="app__top">
-                <button id="find-me" class="app__top-icon icons-ux localization-btn find-mee"><i
+                <button id="find-me" class="app__top-icon icons-ux localization-btn"><i
                         class="fas fa-map-marker-alt"></i></button>
 
                 <p class="app__top-city">Lion</p>
                 <button class="app__top-icon icons-ux settings-btn"><i class="fas fa-cog"></i></button>
             </div>
             <div class="app__mid">
-                <img src="img/rainy.png" alt="" class="app__mid-img">
+                <img src="img/rainy.png" alt="photo of clouds" class="app__mid-img">
                 <div class="app__mid-value temperature ">15 ℃</div>
                 <div class="app__mid-container">
                     <p class="app__mid-container-description">zachmurzone</p>
@@ -68,14 +68,14 @@
             <div class="app__bottom">
                 <div class="app__bottom-section">
                     <div class="app__bottom-section-option">
-                        <img src="img/eclipse(1).png" alt="" srcset="" class="app__bottom-section-option-icon">
+                        <img src="img/eclipse(1).png" alt="icon weather" class="app__bottom-section-option-icon">
                         <p data-i18n="app.weather" class="app__bottom-info-option">weather: </p>
                     </div>
                     <p class="app__bottom-section-value weather"></p>
                 </div>
                 <div class="app__bottom-section">
                     <div class="app__bottom-section-option">
-                        <img src="img/tornado.png" alt="" srcset="" class="app__bottom-section-option-icon">
+                        <img src="img/tornado.png" alt=" icon wind" class="app__bottom-section-option-icon">
                         <p data-i18n="app.wind" class="app__bottom-info-option">wind: </p>
                     </div>
                     <p class="app__bottom-section-value wind">25</p>
@@ -83,14 +83,14 @@
 
                 <div class="app__bottom-section">
                     <div class="app__bottom-section-option">
-                        <img src="img/weather-app.png" alt="" srcset="" class="app__bottom-section-option-icon">
+                        <img src="img/weather-app.png" alt="icon humidity" class="app__bottom-section-option-icon">
                         <p data-i18n="app.humidity" class="app__bottom-info-option">humidity: </p>
                     </div>
                     <p class="app__bottom-section-value humidity">85%</p>
                 </div>
                 <div class="app__bottom-section">
                     <div class="app__bottom-section-option">
-                        <img src="img/rainbow.png" alt="" srcset="" class="app__bottom-section-option-icon">
+                        <img src="img/rainbow.png" alt="icon pressure" class="app__bottom-section-option-icon">
                         <p data-i18n="app.pressure" class="app__bottom-info-option">pressure: </p>
                     </div>
                     <p class="app__bottom-section-value pressure">85%</p>
@@ -106,14 +106,14 @@
     <div class="settings">
         <p class="settings__header" data-i18n="settings.header">Settings</p>
         <div class="settings__container">
-            <!-- <select name="language" id="languageSwitcher"></select> -->
+
             <p class="settings__container-header">
                 <i class="fa-solid fa-globe settings__container-header-icon"></i> <span
                     data-i18n="settings.language">Language</span>
             </p>
             <label class="settings__container-label languageSwitcher"><input
-                    class="settings__container-header-input pl-input" name="language" type="radio"
-                    value="en">ENG</label>
+                    class="settings__container-header-input pl-input" name="language" type="radio" value="en"
+                    checked>ENG</label>
             <label class="settings__container-label languageSwitcher"><input
                     class="settings__container-header-input pl-input" name="language" type="radio" value="pl">PL</label>
         </div>
@@ -124,10 +124,10 @@
             </p>
             <label " class=" settings__container-label">
                 <input class="settings__container-header-input units-radio" name="measurement" type="radio"
-                    value="metric" checked>Metric</label>
+                    value="metric" checked> <span data-i18n="settings.metric">Metric</span> </label>
             <label class="settings__container-label">
                 <input class="settings__container-header-input units-radio" name="measurement" type="radio"
-                    value="imperial">Imperial</label>
+                    value="imperial"> <span data-i18n="settings.imperial">Imperial</span> </label>
         </div>
         <button class="settings__close" data-i18n="settings.btn">Close</button>
     </div>

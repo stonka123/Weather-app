@@ -1,28 +1,32 @@
-const searchBtn = document.querySelector('.panel__wrapper-btn')
-const backBtn = document.querySelector('.app__footer-back')
+//panel
 const panel = document.querySelector('.panel')
-const cityName = document.querySelector('.app__top-city')
-const appMain = document.querySelector('.app')
-const photo = document.querySelector('.app__mid-img')
 const inputCity = document.querySelector('.panel__wrapper-input')
+const warning = document.querySelector('.panel__wrapper-error')
+const searchBtn = document.querySelector('.panel__wrapper-btn')
 
-const localizationBtn = document.querySelectorAll('.find-mee')
+//app dashboard
+const appMain = document.querySelector('.app')
+const cityName = document.querySelector('.app__top-city')
+const photo = document.querySelector('.app__mid-img')
+const backBtn = document.querySelector('.app__footer-back')
+// units app
+const descriptionValue = document.querySelector('.app__mid-container-description')
+const feelValue = document.querySelector('.app__mid-container-text--feel')
+const maxTempValue = document.querySelector('.app__mid-container-text--max')
 const temperature = document.querySelector('.temperature')
 const weather = document.querySelector('.weather')
 const windValue = document.querySelector('.wind')
 const pressureValue = document.querySelector('.pressure')
-const descriptionValue = document.querySelector('.app__mid-container-description')
-const feelValue = document.querySelector('.app__mid-container-text--feel')
-const maxTempValue = document.querySelector('.app__mid-container-text--max')
-
 const humidityValue = document.querySelector('.humidity')
-const warning = document.querySelector('.panel__wrapper-error')
+
+// gps btn
+const localizationBtn = document.querySelectorAll('.localization-btn')
 
 // settings
 const settingsBtn = document.querySelector('.settings-btn')
 const settingsDashboard = document.querySelector('.settings')
 const settingsClose = document.querySelector('.settings__close')
-
+// settings btn
 const plInput = document.querySelectorAll('.pl-input')
 const unitsBtn = document.querySelectorAll('.units-radio')
 
@@ -33,9 +37,7 @@ const API_LANG = '&lang=en'
 const API_LANG_PL = '&lang=pl'
 
 let unicodeDegCel = '℃'
-let unicodeDegFar = '°F'
 let unicodeMetSec = '㎧'
-let unicodeMilHou = 'mph'
 
 const getUrl = city => {
 	const checkLang = localStorage.getItem('i18nextLng')
@@ -68,7 +70,7 @@ unitsBtn.forEach(item => {
 		getWeather()
 	})
 })
-checkUnits()
+
 const getWeather = (lang = API_LANG) => {
 	let city = inputCity.value
 	const URL = getUrl(city, lang)
@@ -162,12 +164,12 @@ function geoFindMe() {
 				const hamletSearch = res.data.address.hamlet
 				const suburbSearch = res.data.address.suburb
 
-				tab = [citySearch, townSearch, villageSearch, hamletSearch, suburbSearch]
-				const found = tab.find(function (el) {
-					return el != undefined
+				arrayCity = [citySearch, townSearch, villageSearch, hamletSearch, suburbSearch]
+				const foundCity = arrayCity.find(function (city) {
+					return city != undefined
 				})
-				inputCity.value = found
-				cityName.textContent = found
+				inputCity.value = foundCity
+				cityName.textContent = foundCity
 				getWeather()
 			})
 			.catch(err => {
@@ -253,3 +255,4 @@ localizationBtn.forEach(el => {
 settingsClose.addEventListener('click', closeSettings)
 
 checkPlaceholderLang(inputCity)
+checkUnits()
