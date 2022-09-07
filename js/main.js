@@ -24,12 +24,18 @@ const settingsDashboard = document.querySelector('.settings')
 const settingsClose = document.querySelector('.settings__close')
 
 const plInput = document.querySelectorAll('.pl-input')
+const unitsBtn = document.querySelectorAll('.units-radio')
 
 const API_LINK = 'https://api.openweathermap.org/data/2.5/weather?q='
 const API_KEY = '&appid=a967b379e49952ca75115e9a5819ac5a'
-const API_UNITS = '&units=metric'
+let API_UNITS = '&units=metric'
 const API_LANG = '&lang=en'
 const API_LANG_PL = '&lang=pl'
+
+let unicodeDegCel = '℃'
+let unicodeDegFar = '°F'
+let unicodeMetSec = '㎧'
+let unicodeMilHou = 'mph'
 
 const getUrl = city => {
 	const checkLang = localStorage.getItem('i18nextLng')
@@ -39,6 +45,30 @@ const getUrl = city => {
 	}
 	return basicUrl + API_LANG
 }
+const checkUnits = () => {
+	const localUnit = localStorage.getItem('units')
+
+	if (localUnit === 'imperial') {
+		console.log(localUnit)
+		API_UNITS = '&units=imperial'
+		unicodeDegCel = '°F'
+		unicodeMetSec = 'mph'
+	} else {
+		console.log(localUnit)
+		API_UNITS = '&units=metric'
+		unicodeDegCel = '℃'
+		unicodeMetSec = '㎧'
+	}
+}
+
+unitsBtn.forEach(item => {
+	item.addEventListener('change', () => {
+		localStorage.setItem('units', item.value)
+		checkUnits()
+		getWeather()
+	})
+})
+checkUnits()
 const getWeather = (lang = API_LANG) => {
 	let city = inputCity.value
 	const URL = getUrl(city, lang)
@@ -57,8 +87,6 @@ const getWeather = (lang = API_LANG) => {
 			const press = res.data.main.pressure
 			const statusCode = res.data.weather[0].id
 
-			let unicodeDegCel = '℃'
-			let unicodeMetSec = '㎧'
 			cityName.textContent = res.data.name
 			// weather.textContent = desc
 			temperature.textContent = Math.round(temp) + ' ' + unicodeDegCel
@@ -120,21 +148,20 @@ const translateWeather = (weather, statusCode) => {
 	}
 }
 
-
 function geoFindMe() {
 	function success(position) {
 		const latitude = position.coords.latitude
 		const longitude = position.coords.longitude
 		const API_LAT_LONG = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
 		axios
-		.get(API_LAT_LONG)
-		.then(res => {
-			const villageSearch = res.data.address.village
+			.get(API_LAT_LONG)
+			.then(res => {
+				const villageSearch = res.data.address.village
 				const citySearch = res.data.address.city
 				const townSearch = res.data.address.town
 				const hamletSearch = res.data.address.hamlet
 				const suburbSearch = res.data.address.suburb
-				
+
 				tab = [citySearch, townSearch, villageSearch, hamletSearch, suburbSearch]
 				const found = tab.find(function (el) {
 					return el != undefined
@@ -146,7 +173,7 @@ function geoFindMe() {
 			.catch(err => {
 				console.log(err)
 			})
-		}
+	}
 	function error() {
 		alert('Unable to retrieve your location')
 	}
@@ -186,7 +213,7 @@ const closeSettings = () => {
 
 document.querySelector('.wrapper').addEventListener('click', e => {
 	const closestSettingsBtn = e.target.closest('.settings-btn')
-	
+
 	if (closestSettingsBtn) {
 		settingsDashboard.classList.toggle('display-flex')
 	} else if (!closestSettingsBtn && settingsDashboard.classList.contains('display-flex')) {
@@ -202,15 +229,12 @@ const checkInputValue = () => {
 
 checkPlaceholderLang(inputCity)
 
-
-
-
-
 const enterCheck = e => {
 	if (e.key === 'Enter') {
 		getWeather()
 	}
 }
+
 plInput.forEach(item => {
 	item.addEventListener('change', () => {
 		localStorage.setItem('i18nextLng', item.value)
