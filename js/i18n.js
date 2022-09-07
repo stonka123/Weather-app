@@ -29,7 +29,6 @@ $(function () {
 								searchBtn: 'Search',
 								localizeBtn: 'Find Me',
 								placeholder: 'Enter the city',
-								error: 'Please enter a valid city name',
 							},
 							app: {
 								weather: 'weather:',
@@ -53,7 +52,6 @@ $(function () {
 								searchBtn: 'Szukaj',
 								localizeBtn: 'Znajdź mnie',
 								placeholder: 'Wprowadź miasto',
-								error: 'Wpisz prawidłowe miasto.',
 							},
 							app: {
 								weather: 'pogoda:',

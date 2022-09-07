@@ -122,9 +122,9 @@ const getWeather = (lang = API_LANG) => {
 			}
 			translateWeather(weather, statusCode, inputCity)
 		})
-		.catch(function () {
+		.catch(() => {
+			warning.classList.add('show')
 			checkInputValue()
-			warning.classList.add('panel__wrapper-error--show')
 		})
 }
 
@@ -222,12 +222,13 @@ document.querySelector('.wrapper').addEventListener('click', e => {
 })
 
 const checkInputValue = () => {
-	if (!inputCity.value) {
-		warning.classList.add('show')
+	const checkLang = localStorage.getItem('i18nextLng')
+	if (checkLang === 'pl') {
+		warning.textContent = 'Wpisz prawidłowe miasto.'
+	} else {
+		warning.textContent = 'Please enter a valid city name.'
 	}
 }
-
-checkPlaceholderLang(inputCity)
 
 const enterCheck = e => {
 	if (e.key === 'Enter') {
@@ -250,3 +251,5 @@ localizationBtn.forEach(el => {
 	el.addEventListener('click', geoFindMe)
 })
 settingsClose.addEventListener('click', closeSettings)
+
+checkPlaceholderLang(inputCity)
