@@ -546,6 +546,7 @@ body {
 .settings__container {
   width: 100%;
   text-align: center;
+  margin: 0.5em 0;
 }
 
 .settings__container-header {
@@ -558,14 +559,15 @@ body {
 }
 
 .settings__container-header-input {
-  padding: 1em;
+  padding: 0.5em;
   margin-right: 0.4em;
 }
 
 .settings__container-label {
-  padding: 1em;
-  margin: 1em;
-  font-size: 0.8rem;
+  padding: 0.5em;
+  margin: 0.5em;
+  font-size: 0.7rem;
+  width: 100%;
 }
 
 .settings__close {

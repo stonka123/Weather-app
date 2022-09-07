@@ -51,25 +51,15 @@ const checkUnits = () => {
 	const localUnit = localStorage.getItem('units')
 
 	if (localUnit === 'imperial') {
-		console.log(localUnit)
 		API_UNITS = '&units=imperial'
 		unicodeDegCel = '°F'
 		unicodeMetSec = 'mph'
 	} else {
-		console.log(localUnit)
 		API_UNITS = '&units=metric'
 		unicodeDegCel = '℃'
 		unicodeMetSec = '㎧'
 	}
 }
-
-unitsBtn.forEach(item => {
-	item.addEventListener('change', () => {
-		localStorage.setItem('units', item.value)
-		checkUnits()
-		getWeather()
-	})
-})
 
 const getWeather = (lang = API_LANG) => {
 	let city = inputCity.value
@@ -77,7 +67,6 @@ const getWeather = (lang = API_LANG) => {
 	axios
 		.get(URL)
 		.then(res => {
-			console.log(URL)
 			warning.textContent = ''
 			const weath = res.data.weather[0].main
 			const desc = res.data.weather[0].description
@@ -90,7 +79,6 @@ const getWeather = (lang = API_LANG) => {
 			const statusCode = res.data.weather[0].id
 
 			cityName.textContent = res.data.name
-			// weather.textContent = desc
 			temperature.textContent = Math.round(temp) + ' ' + unicodeDegCel
 			feelValue.textContent = feel.toFixed(0) + '' + unicodeDegCel
 			maxTempValue.textContent = maxTemp.toFixed(0) + '' + unicodeDegCel
@@ -237,6 +225,13 @@ const enterCheck = e => {
 		getWeather()
 	}
 }
+unitsBtn.forEach(item => {
+	item.addEventListener('change', () => {
+		localStorage.setItem('units', item.value)
+		checkUnits()
+		getWeather()
+	})
+})
 
 plInput.forEach(item => {
 	item.addEventListener('change', () => {
