@@ -188,9 +188,9 @@ function geoFindMe() {
 const checkPlaceholderLang = inputCity => {
 	const checkLang = localStorage.getItem('i18nextLng')
 	if (checkLang === 'pl') {
-		inputCity.placeholder = 'Wpisz miasto'
+		inputCity.placeholder = 'Podaj lokalizację....'
 	} else {
-		inputCity.placeholder = 'Enter the city'
+		inputCity.placeholder = 'Enter your locations...'
 	}
 }
 const showApp = () => {

@@ -28,7 +28,7 @@ $(function () {
 							panel: {
 								searchBtn: 'Search',
 								localizeBtn: 'Find Me',
-								placeholder: 'Enter the city',
+								placeholder: 'Please provide a location...',
 							},
 							app: {
 								weather: 'weather:',
@@ -53,7 +53,7 @@ $(function () {
 							panel: {
 								searchBtn: 'Szukaj',
 								localizeBtn: 'Znajdź mnie',
-								placeholder: 'Wprowadź miasto',
+								placeholder: 'Podaj lokalizację...',
 							},
 							app: {
 								weather: 'pogoda:',
