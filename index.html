@@ -27,13 +27,13 @@
                     <h1 class="panel__wrapper-header__text">Weather App</h1>
                 </div>
                 <div class="container-input">
-                    <input type="text" class="panel__wrapper-input" data-i18n="panel.placeholder"
-                        placeholder="Enter the city" name="input">
+                    <div class="input">
+                        <input type="text" class="input-input" data-i18n="panel.placeholder"
+                            placeholder="Enter the city" name="input">
+                        <button class="input-btn"><i class="fa-solid fa-magnifying-glass input-btn-icon"></i>
+                            <span></span></button>
+                    </div>
                     <p class="panel__wrapper-error"></p>
-                    <button class="panel__wrapper-btn"><i
-                            class="fa-solid fa-magnifying-glass panel__wrapper-btn-icon"></i> <span
-                            data-i18n="panel.searchBtn"></span></button>
-
                 </div>
                 <button id="find-me" class="localization-btn localization-panel"><i
                         class="fas fa-map-marker-alt localization-panel-icon"></i><span

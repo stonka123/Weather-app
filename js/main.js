@@ -1,8 +1,8 @@
 //panel
 const panel = document.querySelector('.panel')
-const inputCity = document.querySelector('.panel__wrapper-input')
+const inputCity = document.querySelector('.input-input')
 const warning = document.querySelector('.panel__wrapper-error')
-const searchBtn = document.querySelector('.panel__wrapper-btn')
+const searchBtn = document.querySelector('.input-btn')
 
 //app dashboard
 const appMain = document.querySelector('.app')
@@ -120,63 +120,6 @@ const getWeather = (lang = API_LANG) => {
 	getAsyncWeather()
 }
 
-// const getWeather = (lang = API_LANG) => {
-// 	let city = inputCity.value
-// 	const URL = getUrl(city, lang)
-// 	axios
-// 		.get(URL)
-// 		.then(res => {
-// 			warning.textContent = ''
-// 			const weath = res.data.weather[0].main
-// 			const desc = res.data.weather[0].description
-// 			const feel = res.data.main.feels_like
-// 			const maxTemp = res.data.main.temp_max
-// 			const wind = res.data.wind.speed
-// 			const temp = res.data.main.temp
-// 			const hum = res.data.main.humidity
-// 			const press = res.data.main.pressure
-// 			const statusCode = res.data.weather[0].id
-
-// 			cityName.textContent = res.data.name
-// 			temperature.textContent = Math.round(temp) + ' ' + unicodeDegCel
-// 			feelValue.textContent = feel.toFixed(0) + '' + unicodeDegCel
-// 			maxTempValue.textContent = maxTemp.toFixed(0) + '' + unicodeDegCel
-// 			descriptionValue.textContent = desc
-// 			windValue.textContent = wind.toFixed(1) + ' ' + unicodeMetSec
-// 			humidityValue.textContent = hum + ' ' + '%'
-// 			pressureValue.textContent = press + ' ' + '㍱'
-// 			showApp()
-
-// 			if (statusCode >= 200 && statusCode <= 232) {
-// 				photo.setAttribute('src', './img/thunderstorm.png')
-// 				weather.textContent = 'Burza'
-// 			} else if (statusCode >= 300 && statusCode <= 532) {
-// 				photo.setAttribute('src', './img/rainy.png')
-// 				weather.textContent = 'Deszcz'
-// 			} else if (statusCode >= 600 && statusCode <= 622) {
-// 				photo.setAttribute('src', './img/snow.png')
-// 				weather.textContent = 'Śnieg'
-// 			} else if (statusCode >= 700 && statusCode <= 771) {
-// 				photo.setAttribute('src', './img/weather-alert.png')
-// 				weather.textContent = 'Niebezpiecznie'
-// 			} else if (statusCode === 781) {
-// 				photo.setAttribute('src', './img/tornado.png')
-// 				weather.textContent = 'Silny wiatr'
-// 			} else if (statusCode === 800) {
-// 				photo.setAttribute('src', './img/sun.png')
-// 				weather.textContent = 'Słonecznie'
-// 			} else if (statusCode >= 801 && statusCode <= 804) {
-// 				photo.setAttribute('src', './img/cloudy-day.png')
-// 				weather.textContent = 'Zachmurzenie'
-// 			}
-// 			translateWeather(weather, statusCode, inputCity)
-// 		})
-// 		.catch(() => {
-// 			warning.classList.add('show')
-// 			checkInputValue()
-// 		})
-// }
-
 const translateWeather = (weather, statusCode) => {
 	const checkLang = localStorage.getItem('i18nextLng')
 	checkPlaceholderLang(inputCity)
@@ -196,47 +139,6 @@ const translateWeather = (weather, statusCode) => {
 		weather.textContent = 'cloudy'
 	}
 }
-
-// function geoFindMe() {
-// 	function success(position) {
-// 		const latitude = position.coords.latitude
-// 		const longitude = position.coords.longitude
-// 		const API_LAT_LONG = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`
-// 		axios
-// 			.get(API_LAT_LONG)
-// 			.then(res => {
-// 				const villageSearch = res.data.address.village
-// 				const citySearch = res.data.address.city
-// 				const townSearch = res.data.address.town
-// 				const hamletSearch = res.data.address.hamlet
-// 				const suburbSearch = res.data.address.suburb
-
-// 				arrayCity = [citySearch, townSearch, villageSearch, hamletSearch, suburbSearch]
-// 				const foundCity = arrayCity.find(function (city) {
-// 					return city != undefined
-// 				})
-// 				inputCity.value = foundCity
-// 				cityName.textContent = foundCity
-// 				getWeather()
-// 			})
-// 			.catch(err => {
-// 				console.log(err)
-// 			})
-// 	}
-// 	function error() {
-// 		alert('Unable to retrieve your location')
-// 	}
-
-// 	if (navigator.geolocation) {
-// 		cityName.textContent = 'Locating…'
-// 		console.log(navigator.geolocation)
-// 		navigator.geolocation.getCurrentPosition(success, error, {
-// 			maximumAge: 15000,
-// 		})
-// 	} else {
-// 		alert('Geolocation is not supported by your browser')
-// 	}
-// }
 
 function geoFindMe() {
 	function success(position) {
