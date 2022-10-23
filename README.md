@@ -10,14 +10,12 @@ The weather application is intended for users who want to check the weather in t
 - [@stonka123](https://github.com/stonka123)
 
 
-![Logo](https://i.im.ge/2022/09/07/OKfiOq.logo-weather.jpg)
+[![logo-weather.jpg](https://i.postimg.cc/KjTfCmvk/logo-weather.jpg)](https://postimg.cc/hQSVdWmc)
 
 
 ## Screenshots
 
-![App Screenshot](https://i.im.ge/2022/09/07/OKfxWG.screen-weather.jpg)
-
-
+[![screen-weather.jpg](https://i.postimg.cc/VsJVj81c/screen-weather.jpg)](https://postimg.cc/BtGp0RXh)
 ## Demo
 
 
