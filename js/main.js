@@ -226,7 +226,6 @@ const checkInputValue = () => {
 		warning.textContent = 'Please enter a valid city name.'
 	}
 }
-
 const enterCheck = e => {
 	if (e.key === 'Enter') {
 		getWeather()
