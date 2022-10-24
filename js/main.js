@@ -120,6 +120,10 @@ const getWeather = (lang = API_LANG) => {
 	getAsyncWeather()
 }
 
+const focusOutinput = () =>{
+
+}
+
 const translateWeather = (weather, statusCode) => {
 	const checkLang = localStorage.getItem('i18nextLng')
 	checkPlaceholderLang(inputCity)
