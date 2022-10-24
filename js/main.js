@@ -196,6 +196,7 @@ const checkPlaceholderLang = inputCity => {
 const showApp = () => {
 	panel.classList.add('translate-right')
 	appMain.classList.add('show')
+	
 }
 
 const showPanel = () => {
