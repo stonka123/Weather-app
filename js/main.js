@@ -117,6 +117,8 @@ const getWeather = (lang = API_LANG) => {
 			checkInputValue()
 		}
 	}
+	console.log(document.activeElement)
+	document.activeElement.blur()
 	getAsyncWeather()
 }
 
@@ -196,7 +198,6 @@ const checkPlaceholderLang = inputCity => {
 const showApp = () => {
 	panel.classList.add('translate-right')
 	appMain.classList.add('show')
-	
 }
 
 const showPanel = () => {
